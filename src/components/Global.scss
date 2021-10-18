@@ -1,10 +1,18 @@
 @import '../scss/variables';
 
 .global {    
-    display: grid;
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+
+    &__header {
+        font-size: 1.5rem;
+        color: $black;
+        flex: 0 0 100%;
+    }
 
     &__data {
+        flex: 1 1 100%;
         box-shadow: $box-shadow;
         background: $white;
         padding: 1rem;
@@ -13,11 +21,44 @@
         align-items: center;
         border-radius: $border-radius;
 
+        &-left {
+            display: flex;
+            flex-direction: column;
+            gap: .25rem;
+        }
+
+        &-name {
+            text-transform: capitalize;
+            font-weight: 700;
+            color: $gray;
+        }
+
+        &-value {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        &-new-value {
+            font-size: .9rem;
+            
+            &.plus {
+                color: $green;
+            }
+
+            &.minus {
+                color: $red;
+            }
+        }
+
         &-icon-box {
             background: $blue-gradient;
             color: $white;
             padding: 1rem;
             border-radius: $border-radius * .5;
+        }
+
+        &-icon {
+            font-size: 1.25rem;
         }
     }
 }

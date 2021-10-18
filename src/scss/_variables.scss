@@ -1,9 +1,14 @@
+// Colors
 $blue-gradient: linear-gradient(90deg, rgba(33,212,253,1) 0%, rgba(33,82,255,1) 100%);
 $blue-light: rgba(33,212,253,1);
 $blue: rgba(33,82,255,1);
 $white: hsl(0, 0%, 98%);
 $gray-light: hsl(0, 0%, 94%);
-$black: hsl(0, 0%, 0%);
+$gray: hsl(0, 0%, 30%);
+$black: hsl(0, 0%, 20%);
+$green: hsl(86, 81%, 46%);
+$red: rgb(234, 6, 6);
 
-$box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+// Other
+$box-shadow: rgba(17, 12, 46, 0.05) 0px 48px 100px 0px;
 $border-radius: 1rem;
