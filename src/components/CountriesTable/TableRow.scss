@@ -21,10 +21,10 @@
 
     &__td-name {
         font-size: .9rem;
+        white-space: nowrap;
     }
 
     &__td-value {
         font-weight: 700;
-        // color: $font-color-blue;
     }
 }

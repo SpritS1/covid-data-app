@@ -1,18 +1,18 @@
 import TableRow from './TableRow';
 import './CountriesTable.scss';
 
-const CountriesTable = () => {
+const CountriesTable = ({ countriesData }) => {
+
     return ( 
         <table className="countries-table" >
-            <thead>
-                <th colSpan={3} className='countries-table__th'>Cases and deaths by country</th>
+            <thead className='countries-table__thead'>
+                <tr>
+                    <th colSpan={3} className='countries-table__th'>Cases and deaths by country</th>
+                </tr>
             </thead>
-            {/* <tbody> */}
-                <TableRow />
-                <TableRow />
-                <TableRow />
-                <TableRow />
-            {/* </tbody> */}
+            <tbody className='countries-table__tbody'>
+                {countriesData && countriesData.map((countryData) => <TableRow countryData={countryData} key={countryData.CountryCode}/>)}
+            </tbody>
         </table>
      );
 }
