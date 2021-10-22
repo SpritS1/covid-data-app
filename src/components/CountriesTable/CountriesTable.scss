@@ -1,0 +1,16 @@
+@import '../../scss/variables';
+
+.countries-table {
+    width: 100%;
+    margin-top: 1rem;
+    background: $white;
+    box-shadow: $box-shadow;
+    border-radius: $border-radius;
+    border-collapse: collapse;
+    
+        &__th {
+            padding: 1rem;
+            text-align: left;
+            display: table-cell;
+        }
+}

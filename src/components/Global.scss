@@ -7,7 +7,6 @@
 
     &__header {
         font-size: 1.5rem;
-        color: $black;
         flex: 0 0 100%;
     }
 
@@ -30,7 +29,6 @@
         &-name {
             text-transform: capitalize;
             font-weight: 700;
-            color: $gray;
         }
 
         &-value {

@@ -1,0 +1,30 @@
+@import '../../scss/variables';
+
+.table-tr {
+    border-bottom: 1px solid $gray-light;
+
+    &__td-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: .25rem;
+        padding: 1rem;
+        text-align: center;
+
+        &--first {
+            display: flex;
+            flex-direction: column;
+            gap: .25rem;
+            padding: 1rem;
+            text-align: left;
+        }
+    }
+
+    &__td-name {
+        font-size: .9rem;
+    }
+
+    &__td-value {
+        font-weight: 700;
+        // color: $font-color-blue;
+    }
+}

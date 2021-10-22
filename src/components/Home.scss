@@ -1,5 +1,9 @@
 @import '../scss/variables';
 
+body {
+    color: $font-color-blue;
+}
+
 .home {
     background: $gray-light;
     min-height: 100vh;
@@ -8,7 +12,6 @@
 
     &__header {
         font-size: 2rem;
-        color: $black;
         margin-bottom: 2rem;
     }
 }
