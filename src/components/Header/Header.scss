@@ -1,0 +1,36 @@
+@import '../../scss/variables';
+
+.header {
+    padding: 1rem;
+    margin: .25rem 0 2rem 0;
+    background: $white;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__text {
+        font-size: 1.5rem;
+    }
+    
+    &__date {
+        font-size: .95rem;
+        background: $black-gradient;
+        color: $white;
+        padding: .5rem;
+        border-radius: $border-radius * .5;
+
+        &::before {
+            display: inline-block;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 400;
+            content: "\f017";
+            margin-right: .25rem;
+        }
+    }
+}

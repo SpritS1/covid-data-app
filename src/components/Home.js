@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import './Home.scss';
 import Global from './Global';
 import CountriesTable from './CountriesTable/CountriesTable';
+import Header from './Header/Header';
 
 const Home = () => {
     const [covidData, setCovidData] = useState('');
@@ -21,7 +22,7 @@ const Home = () => {
 
     return ( 
         <div className="home">
-            <h1 className="home__header">COVID-19 Data</h1>
+            <Header></Header>
             <Global globalData={covidData.Global}/>
             <CountriesTable countriesData={covidData.Countries}/>
         </div>

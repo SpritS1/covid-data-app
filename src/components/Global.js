@@ -3,7 +3,7 @@ import './Global.scss';
 const Global = ({ globalData }) => {
     return ( 
         <div className="global">
-            <h2 className="global__header">Global data</h2>
+            <h2 className="global__header">Global</h2>
 
             <div className="global__data">
                 <div className="global__data-left">
