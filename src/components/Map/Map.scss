@@ -1,0 +1,15 @@
+@import '../../scss/variables';
+
+.map {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: white;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    overflow-x: scroll;
+
+
+    &__geochart {
+        width: 600px;
+    }
+}

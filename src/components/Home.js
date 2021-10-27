@@ -3,6 +3,7 @@ import './Home.scss';
 import Global from './Global';
 import CountriesTable from './CountriesTable/CountriesTable';
 import Header from './Header/Header';
+import Map from './Map/Map';
 
 const Home = () => {
     const [covidData, setCovidData] = useState('');
@@ -24,6 +25,7 @@ const Home = () => {
         <div className="home">
             <Header></Header>
             <Global globalData={covidData.Global}/>
+            <Map></Map>
             <CountriesTable countriesData={covidData.Countries}/>
         </div>
      );
