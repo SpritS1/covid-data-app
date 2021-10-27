@@ -1,7 +1,25 @@
 import TableRow from './TableRow';
 import './CountriesTable.scss';
+import { useEffect, useState } from 'react';
 
 const CountriesTable = ({ countriesData }) => {
+    const [sortedCountriesData, setSortedCountriesData] = useState([]);
+
+    const sortData = (sortedElement, data) => {
+        const newDataArray = data.concat();
+
+        const sortedData = newDataArray.sort((a, b) => {
+            return b[sortedElement] - a[sortedElement];
+        })
+
+        return sortedData;
+    }
+    
+    useEffect(() => {
+        if (countriesData) {
+            setSortedCountriesData(sortData('NewConfirmed', countriesData));
+        }
+    }, [countriesData])
 
     return ( 
         <table className="countries-table" >
@@ -11,7 +29,7 @@ const CountriesTable = ({ countriesData }) => {
                 </tr>
             </thead>
             <tbody className='countries-table__tbody'>
-                {countriesData && countriesData.map((countryData) => <TableRow countryData={countryData} key={countryData.CountryCode}/>)}
+                {sortedCountriesData && sortedCountriesData.map((countryData) => <TableRow countryData={countryData} key={countryData.CountryCode}/>)}
             </tbody>
         </table>
      );
