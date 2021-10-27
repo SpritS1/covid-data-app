@@ -32,8 +32,10 @@
     }
 
     &__th {
+        font-size: 1.25rem;
         padding: 1rem;
         text-align: left;
         display: table-cell;
+        text-transform: capitalize;
     }
 }
