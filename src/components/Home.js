@@ -1,32 +1,21 @@
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import './Home.scss';
 import Global from './Global';
 import CountriesTable from './CountriesTable/CountriesTable';
 import Header from './Header/Header';
 import Map from './Map/Map';
+import useFetch from '../hooks/useFetch';
 
 const Home = () => {
-    const [covidData, setCovidData] = useState('');
-
-    const dataURL = 'https://api.covid19api.com/summary';
-
-    const fetchData = (url) => {
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setCovidData(data))
-            .catch(err => console.log(err))
-    }
-
-    useEffect(() => {
-        fetchData(dataURL);
-    }, [])
+    const url = 'https://webhooks.mongodb-stitch.com/api/client/v2.0/app/covid-19-qppza/service/REST-API/incoming_webhook/global?hide_fields=_id, country_code, country_iso3, loc, state, uid, date, recovered, recovered_daily&min_date=2021-10-29&max_date=2021-10-29';
+    const {response: countriesData, error} = useFetch(url, {});
 
     return ( 
         <div className="home">
             <Header></Header>
-            <Global globalData={covidData.Global}/>
+            {/* <Global globalData={covidData.Global}/> */}
             <Map></Map>
-            <CountriesTable countriesData={covidData.Countries}/>
+            <CountriesTable countriesData={countriesData}/>
         </div>
      );
 }

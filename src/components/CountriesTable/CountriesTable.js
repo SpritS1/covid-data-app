@@ -3,23 +3,23 @@ import './CountriesTable.scss';
 import { useEffect, useState } from 'react';
 
 const CountriesTable = ({ countriesData }) => {
-    const [sortedCountriesData, setSortedCountriesData] = useState([]);
+    // const [sortedCountriesData, setSortedCountriesData] = useState([]);
 
-    const sortData = (sortedElement, data) => {
-        const newDataArray = data.concat();
+    // const sortData = (sortedElement, data) => {
+    //     const newDataArray = data.concat();
 
-        const sortedData = newDataArray.sort((a, b) => {
-            return b[sortedElement] - a[sortedElement];
-        })
+    //     const sortedData = newDataArray.sort((a, b) => {
+    //         return b[sortedElement] - a[sortedElement];
+    //     })
 
-        return sortedData;
-    }
+    //     return sortedData;
+    // }
     
-    useEffect(() => {
-        if (countriesData) {
-            setSortedCountriesData(sortData('NewConfirmed', countriesData));
-        }
-    }, [countriesData])
+    // useEffect(() => {
+    //     if (countriesData) {
+    //         setSortedCountriesData(sortData('NewConfirmed', countriesData));
+    //     }
+    // }, [countriesData])
 
     return ( 
         <table className="countries-table" >
@@ -29,7 +29,12 @@ const CountriesTable = ({ countriesData }) => {
                 </tr>
             </thead>
             <tbody className='countries-table__tbody'>
-                {sortedCountriesData && sortedCountriesData.map((countryData) => <TableRow countryData={countryData} key={countryData.CountryCode}/>)}
+                {countriesData && countriesData.map((countryData) => {
+                    if (countryData.confirmed && countryData.deaths) {
+                        return <TableRow countryData={countryData} key={countryData.combined_name}/>
+                    }
+                }
+                )}
             </tbody>
         </table>
      );

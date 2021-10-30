@@ -16,11 +16,11 @@ const Map = () => {
                 ['Canada', 500],
                 ['FR', 600],
                 ['RU', 700],
-                ['PL', 500]
+                ['PL', 500],
             ]}
             options={{
                 // colorAxis: { colors: ['green', 'red'] },
-                colors: '#21d4fd'
+                colors: '#21d4fd',
               }}
             >
         </Chart>
