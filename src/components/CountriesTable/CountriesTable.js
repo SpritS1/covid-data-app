@@ -1,25 +1,10 @@
 import TableRow from './TableRow';
 import './CountriesTable.scss';
 import { useEffect, useState } from 'react';
+import sortData from '../../scripts/sortData';
 
 const CountriesTable = ({ countriesData }) => {
-    // const [sortedCountriesData, setSortedCountriesData] = useState([]);
-
-    // const sortData = (sortedElement, data) => {
-    //     const newDataArray = data.concat();
-
-    //     const sortedData = newDataArray.sort((a, b) => {
-    //         return b[sortedElement] - a[sortedElement];
-    //     })
-
-    //     return sortedData;
-    // }
-    
-    // useEffect(() => {
-    //     if (countriesData) {
-    //         setSortedCountriesData(sortData('NewConfirmed', countriesData));
-    //     }
-    // }, [countriesData])
+    const [sortedCountriesData, setSortedCountriesData] = useState(sortData('confirmed', countriesData));
 
     return ( 
         <table className="countries-table" >
@@ -29,7 +14,7 @@ const CountriesTable = ({ countriesData }) => {
                 </tr>
             </thead>
             <tbody className='countries-table__tbody'>
-                {countriesData && countriesData.map((countryData) => {
+                {sortedCountriesData && sortedCountriesData.map((countryData) => {
                     if (countryData.confirmed && countryData.deaths) {
                         return <TableRow countryData={countryData} key={countryData.combined_name}/>
                     }
