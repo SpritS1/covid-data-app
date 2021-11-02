@@ -26,8 +26,8 @@ const Map = (props) => {
             chartType="GeoChart"
             data={mapData}
             options={{
-                colors: 'red',
-              }}
+                colorAxis: {colors: ['#e6faff' , '#21d4fd', '#1EBFE3'],},
+            }}
             >
         </Chart>
     </div> );
