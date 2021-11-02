@@ -1,13 +1,8 @@
 import './Header.scss'
+import getDate from '../../scripts/getDate';
 
 const Header = () => {
-    const getCurrentDate = () => {
-        let currentDate = new Date();
-        currentDate = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`;
-        return currentDate;
-    }
-
-    const currentDate = getCurrentDate();
+    const currentDate = getDate();
  
     return ( 
         <header className='header'>

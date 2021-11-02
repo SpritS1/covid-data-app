@@ -26,7 +26,7 @@ const Global = ({ countriesData }) => {
 
             <div className="global__data">
                 <div className="global__data-left">
-                    <span className="global__data-name">Today cases</span>
+                    <span className="global__data-name">New cases</span>
                     <p className="global__data-value">{globalData && globalData.confirmed_daily.toLocaleString()} <span className='global__data-new-value plus'>+2412</span></p>
                 </div>
                 <div className="global__data-icon-box">
@@ -35,7 +35,7 @@ const Global = ({ countriesData }) => {
             </div>
             <div className="global__data">
                 <div className="global__data-left">
-                    <span className="global__data-name">Today Deaths</span>
+                    <span className="global__data-name">New Deaths</span>
                     <p className="global__data-value">{globalData && globalData.deaths_daily.toLocaleString()}  <span className='global__data-new-value minus'>-10</span></p>
                 </div>
                 <div className="global__data-icon-box">
