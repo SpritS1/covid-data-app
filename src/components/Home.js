@@ -14,7 +14,7 @@ const Home = () => {
         <div className="home">
             <Header></Header>
             {/* <Global globalData={covidData.Global}/> */}
-            <Map></Map>
+            {countriesData && <Map countriesData={countriesData} />}
             {countriesData && <CountriesTable countriesData={countriesData}/>}
         </div>
      );
