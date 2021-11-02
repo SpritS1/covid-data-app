@@ -3,16 +3,19 @@ import './Map.scss';
 
 const Map = (props) => {
     const mapData = [['Country', 'Cases']];
-    const appliedCountries = [];
+    // const appliedCountries = [];
 
-    props.countriesData.forEach(({country_iso2, confirmed_daily}) => {
-        if (confirmed_daily && !appliedCountries.includes(country_iso2)) {
-            const data = [country_iso2, confirmed_daily];
-            appliedCountries.push(country_iso2);
-            mapData.push(data);
-        } else if (confirmed_daily && appliedCountries.includes(country_iso2)) {
-            const countryIndex = mapData.findIndex((element) => element[0] === country_iso2);
-            mapData[countryIndex][1] += confirmed_daily;
+    props.countriesData.forEach(({country_iso2s, confirmed_daily}) => {
+        if (confirmed_daily) {
+            if (country_iso2s.length > 0) {
+                country_iso2s.forEach(iso => {
+                    const data = [iso, confirmed_daily];
+                    mapData.push(data);
+                });
+            } else {
+                const data = [country_iso2s[0], confirmed_daily];
+                mapData.push(data);
+            }
         }
     });
 

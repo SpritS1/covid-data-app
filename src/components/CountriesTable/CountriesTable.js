@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import sortData from '../../scripts/sortData';
 
 const CountriesTable = ({ countriesData }) => {
-    const [sortedCountriesData, setSortedCountriesData] = useState(sortData('confirmed', countriesData));
+    const [sortedCountriesData, setSortedCountriesData] = useState(sortData('confirmed_daily', countriesData));
 
     return ( 
         <table className="countries-table" >
@@ -16,7 +16,7 @@ const CountriesTable = ({ countriesData }) => {
             <tbody className='countries-table__tbody'>
                 {sortedCountriesData && sortedCountriesData.map((countryData) => {
                     if (countryData.confirmed && countryData.deaths) {
-                        return <TableRow countryData={countryData} key={countryData.combined_name}/>
+                        return <TableRow countryData={countryData} key={countryData.country}/>
                     }
                 }
                 )}
