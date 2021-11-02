@@ -15,7 +15,7 @@ const CountriesTable = ({ countriesData }) => {
             </thead>
             <tbody className='countries-table__tbody'>
                 {sortedCountriesData && sortedCountriesData.map((countryData) => {
-                    if (countryData.confirmed && countryData.deaths) {
+                    if (countryData.confirmed && countryData.deaths && countryData.country_iso2s.length) {
                         return <TableRow countryData={countryData} key={countryData.country}/>
                     }
                 }

@@ -1,10 +1,28 @@
 import './TableRow.scss';
 
 const TableRow = ({countryData}) => {
-    // console.log(countryData);
-    
+    const iso = countryData.country_iso2s[0];
+
     return ( 
         <tr className='table-tr'>
+            <td className='table-tr__td'>
+                <div className="table-tr__td-wrapper">
+
+                { iso && countryData.country !== 'United Kingdom' &&
+                    <img
+                        src={`https://flagcdn.com/24x18/${iso.toString().toLowerCase()}.png`}
+                        alt={countryData.country + ' flag'}>
+                    </img>
+                }
+                {/* UK ISO2s are broken :c */}
+                { countryData.country === 'United Kingdom' && 
+                    <img
+                        src={`https://flagcdn.com/24x18/gb.png`}
+                        alt={countryData.country + ' flag'}>
+                    </img>
+                }
+                </div>
+            </td>
             <td className='table-tr__td'>
                 <div className="table-tr__td-wrapper--first">
                     <span className='table-tr__td-name'>Country:</span>
