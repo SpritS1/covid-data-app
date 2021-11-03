@@ -1,4 +1,5 @@
 @import '../../scss/variables';
+@import '../../scss/mixins';
 
 .map {
     margin: 1rem 0;
@@ -6,8 +7,9 @@
     background: white;
     border-radius: $border-radius;
     box-shadow: $box-shadow;
-    overflow-x: scroll;
+    overflow-x: auto;
 
+    @include scrollbar;
 
     &__geochart {
         width: 600px;
