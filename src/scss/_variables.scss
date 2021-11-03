@@ -16,6 +16,13 @@ $black-gradient: linear-gradient(310deg, rgb(20, 23, 39), rgb(58, 65, 111));
 // Elements colors
 $font-color-blue: hsl(218, 33%, 30%);
 
+// Breakpoints
+
+$breakpoint-mobile: 576px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 992px;
+
+
 // Other
 $box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 $border-radius: 1rem;

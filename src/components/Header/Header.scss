@@ -2,7 +2,7 @@
 
 .header {
     padding: 1rem;
-    margin: .25rem 0 2rem 0;
+    margin: .25rem 0 0 0;
     background: $white;
     border-radius: $border-radius;
     box-shadow: $box-shadow;
@@ -11,7 +11,7 @@
     justify-content: space-between;
 
     &__text {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
     
     &__date {
@@ -31,6 +31,14 @@
             font-weight: 400;
             content: "\f017";
             margin-right: .25rem;
+        }
+    }
+}
+
+@media screen and (min-width: $breakpoint-mobile) {
+    .header {
+        &__text {
+            font-size: 1.5rem;
         }
     }
 }

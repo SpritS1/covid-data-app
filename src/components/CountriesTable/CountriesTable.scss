@@ -3,14 +3,13 @@
 
 .countries-table {
     max-width: 100%;
-    width: fit-content;
-    margin-top: 1rem;
+    // margin-top: 1rem;
     background: $white;
     box-shadow: $box-shadow;
     border-radius: $border-radius;
     border-collapse: collapse;
     display: block;
-    height: 400px;
+    height: 325px;
     overflow: auto;
 
     @include scrollbar;
@@ -21,5 +20,11 @@
         text-align: left;
         display: table-cell;
         text-transform: capitalize;
+    }
+}
+
+@media screen and (min-width: $breakpoint-mobile) {
+    .countries-table {
+        height: 400px;
     }
 }

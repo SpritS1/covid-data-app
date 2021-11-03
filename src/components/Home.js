@@ -17,8 +17,8 @@ const Home = () => {
         <div className="home">
             <Header></Header>
             {countriesData && <Global countriesData={countriesData}/>}
-            {countriesData && <Map countriesData={countriesData} />}
             {countriesData && <CountriesTable countriesData={countriesData}/>}
+            {countriesData && <Map countriesData={countriesData} />}
         </div>
      );
 }
