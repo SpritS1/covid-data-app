@@ -1,7 +1,11 @@
 @import '../../scss/variables';
 
 .table-tr {
-    border-bottom: 1px solid $gray-light;
+    // border-bottom: 1px solid $gray-light;
+
+    &:nth-child(even) {
+        background: $gray-light;
+    }
 
     &__td-wrapper {
         display: flex;
@@ -15,7 +19,7 @@
             flex-direction: column;
             gap: .25rem;
             padding: 1rem;
-            text-align: left;
+            max-width: 150px;
         }
     }
 
@@ -27,6 +31,15 @@
     &__td-value {
         font-weight: 700;
         white-space: nowrap;
+    }
 
+    &__td-name--first {
+        font-size: .9rem;
+        // white-space: nowrap;
+    }
+
+    &__td-value--first {
+        font-weight: 700;
+        // white-space: nowrap;
     }
 }
