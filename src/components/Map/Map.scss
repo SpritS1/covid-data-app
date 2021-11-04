@@ -11,6 +11,28 @@
     @include scrollbar;
 
     &__geochart {
-        width: 600px;
+        width: 800px;
     }
+}
+
+@media screen and (min-width: $breakpoint-tablet) {
+    .map {       
+        div {
+            height: 100%;
+        }
+
+        &__geochart {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+    }
+}
+
+@media screen and (min-width: $breakpoint-desktop) {
+    .map {
+        grid-column: 2 / 3;
+        grid-row: 2 / 4;       
+    }
+
 }

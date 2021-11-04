@@ -79,3 +79,10 @@
         }
     }
 }
+
+@media screen and (min-width: $breakpoint-desktop) {
+    .global {
+        grid-column: 1 / 2;
+        grid-row: 2;
+    }
+}

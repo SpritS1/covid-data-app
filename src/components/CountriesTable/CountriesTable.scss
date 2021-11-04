@@ -2,29 +2,46 @@
 @import '../../scss/mixins';
 
 .countries-table {
-    max-width: 100%;
-    // margin-top: 1rem;
+    display: block;
+    position: relative;
+    width: 100%;
     background: $white;
     box-shadow: $box-shadow;
     border-radius: $border-radius;
     border-collapse: collapse;
-    display: block;
-    height: 325px;
-    overflow: auto;
-
-    @include scrollbar;
+    overflow: hidden;
+    padding: .5rem;
+    
+    &__thead {
+        display: block;
+        position: absolute;
+    }
 
     &__th {
         font-size: 1.25rem;
-        padding: 1rem;
+        padding: .5rem;
         text-align: left;
-        display: table-cell;
+        display: block;
         text-transform: capitalize;
+    }
+
+    &__tbody {
+        margin-top: 3.5rem;
+        display: block;
+        overflow: auto;
+        width: 100%;
+        height: 300px;
+        
+        @include scrollbar;
     }
 }
 
-@media screen and (min-width: $breakpoint-mobile) {
+// @media screen and (min-width: $breakpoint-mobile) {
+
+// }
+
+@media screen and (min-width: $breakpoint-desktop) {
     .countries-table {
-        height: 400px;
-    }
+        grid-column: 1 / 2;
+    }   
 }

@@ -15,7 +15,6 @@ body {
 
 @media screen and (min-width: $breakpoint-mobile) {
     .home {
-        gap: 2rem;
         padding: 1rem;
     }
 }
@@ -23,5 +22,12 @@ body {
 @media screen and (min-width: $breakpoint-tablet) {
     .home {
         padding: 2rem;
+    }
+}
+
+@media screen and (min-width: $breakpoint-desktop) {
+    .home {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto 1fr;
     }
 }

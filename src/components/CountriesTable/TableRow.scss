@@ -1,45 +1,85 @@
 @import '../../scss/variables';
 
-.table-tr {
-    // border-bottom: 1px solid $gray-light;
+.table-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
 
     &:nth-child(even) {
         background: $gray-light;
     }
 
-    &__td-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: .25rem;
-        padding: 1rem;
-        text-align: center;
+    &__td {
+        &:first-child {
+            flex: 0 0 auto;
+        }
 
-        &--first {
+        flex: 1 0 150px;
+        padding: .5rem;
+
+        &-wrapper, &-wrapper--first {
             display: flex;
             flex-direction: column;
+            align-items: center;
             gap: .25rem;
-            padding: 1rem;
-            max-width: 150px;
+            // white-space: nowrap;
+        }
+
+        &-wrapper--first {
+            align-items: flex-start;
+        }
+
+        &-name, &-name--first {
+            font-size: .9rem;
+        }
+
+        &-value, &-value--first {
+            font-weight: 700;
         }
     }
-
-    &__td-name {
-        font-size: .9rem;
-        white-space: nowrap;
-    }
-
-    &__td-value {
-        font-weight: 700;
-        white-space: nowrap;
-    }
-
-    &__td-name--first {
-        font-size: .9rem;
-        // white-space: nowrap;
-    }
-
-    &__td-value--first {
-        font-weight: 700;
-        // white-space: nowrap;
-    }
 }
+
+// .table-tr {
+//     width: 100%;
+//     display: flex;
+//     justify-content: space-around;
+
+    // &:nth-child(even) {
+    //     background: $gray-light;
+    // }
+    
+//     &__td-wrapper {
+//         display: flex;
+//         flex-direction: column;
+//         gap: .25rem;
+//         padding: 1rem;
+//         text-align: center;
+
+//         &--first {
+//             display: flex;
+//             flex-direction: column;
+//             gap: .25rem;
+//             padding: 1rem;
+//         }
+//     }
+
+//     &__td-name {
+//         font-size: .9rem;
+//         white-space: nowrap;
+//     }
+
+//     &__td-value {
+//         font-weight: 700;
+//         white-space: nowrap;
+//     }
+
+//     &__td-name--first {
+//         font-size: .9rem;
+//         // white-space: nowrap;
+//     }
+
+//     &__td-value--first {
+//         font-weight: 700;
+//         // white-space: nowrap;
+//     }
+// }

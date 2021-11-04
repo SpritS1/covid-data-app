@@ -4,10 +4,9 @@ const TableRow = ({countryData}) => {
     const iso = countryData.country_iso2s[0];
 
     return ( 
-        <tr className='table-tr'>
-            <td className='table-tr__td'>
-                <div className="table-tr__td-wrapper">
-
+        <tr className='table-row'>
+            <td className='table-row__td'>
+                <div className="table-row__td-wrapper">
                 { iso && countryData.country !== 'United Kingdom' &&
                     <img
                         src={`https://flagcdn.com/24x18/${iso.toString().toLowerCase()}.png`}
@@ -23,34 +22,34 @@ const TableRow = ({countryData}) => {
                 }
                 </div>
             </td>
-            <td className='table-tr__td'>
-                <div className="table-tr__td-wrapper--first">
-                    <span className='table-tr__td-name--first'>Country:</span>
-                    <span className='table-tr__td-value--first'>{ countryData.country }</span>
+            <td className='table-row__td'>
+                <div className="table-row__td-wrapper--first">
+                    <span className='table-row__td-name--first'>Country:</span>
+                    <span className='table-row__td-value--first'>{ countryData.country }</span>
                 </div>
             </td>
-            <td className='table-tr__td'>
-                <div className="table-tr__td-wrapper">
-                    <span className='table-tr__td-name'>New Cases:</span>
-                    <span className='table-tr__td-value'>{countryData.confirmed_daily.toLocaleString() }</span>
+            <td className='table-row__td'>
+                <div className="table-row__td-wrapper">
+                    <span className='table-row__td-name'>New Cases:</span>
+                    <span className='table-row__td-value'>{countryData.confirmed_daily.toLocaleString() }</span>
                 </div>
             </td>
-            <td className='table-tr__td'>
-                <div className="table-tr__td-wrapper">
-                    <span className='table-tr__td-name'>Total Cases:</span>
-                    <span className='table-tr__td-value'>{countryData.confirmed.toLocaleString() }</span>
+            <td className='table-row__td'>
+                <div className="table-row__td-wrapper">
+                    <span className='table-row__td-name'>Total Cases:</span>
+                    <span className='table-row__td-value'>{countryData.confirmed.toLocaleString() }</span>
                 </div>
             </td>
-            <td className='table-tr__td'>
-                <div className="table-tr__td-wrapper">
-                    <span className='table-tr__td-name'>New Deaths:</span>
-                    <span className='table-tr__td-value'>{countryData.deaths_daily.toLocaleString() }</span>
+            <td className='table-row__td'>
+                <div className="table-row__td-wrapper">
+                    <span className='table-row__td-name'>New Deaths:</span>
+                    <span className='table-row__td-value'>{countryData.deaths_daily.toLocaleString() }</span>
                 </div>
             </td>
-            <td className='table-tr__td'>
-                <div className="table-tr__td-wrapper">
-                    <span className='table-tr__td-name'>Total Deaths:</span>
-                    <span className='table-tr__td-value'>{countryData.deaths.toLocaleString() }</span>
+            <td className='table-row__td'>
+                <div className="table-row__td-wrapper">
+                    <span className='table-row__td-name'>Total Deaths:</span>
+                    <span className='table-row__td-value'>{countryData.deaths.toLocaleString() }</span>
                 </div>
             </td>
         </tr>

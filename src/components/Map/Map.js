@@ -27,6 +27,9 @@ const Map = (props) => {
             data={mapData}
             options={{
                 colorAxis: {colors: ['#e6faff' , '#21d4fd', '#1EBFE3'],},
+                // keepAspectRatio: true,
+                // width: '600px',
+                // height: '100%',
             }}
             >
         </Chart>
