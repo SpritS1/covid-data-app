@@ -24,11 +24,11 @@
         margin-left: .25rem;
     }
 
-    &.desc:after {
+    &.active.desc:after {
         content: "\f0dd";
     }
 
-    &.asc:after {
+    &.active.asc:after {
         content: "\f0de";
     }
 }
