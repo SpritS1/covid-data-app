@@ -1,0 +1,16 @@
+@import '../../scss/variables';
+
+.sort-by {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    gap: .5rem;
+    padding: .5rem 0;
+    list-style-type: none;
+    overflow: auto;
+
+    &__text {
+        font-weight: 700;
+    }
+}
+

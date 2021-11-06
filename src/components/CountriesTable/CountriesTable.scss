@@ -14,19 +14,25 @@
     
     &__thead {
         display: block;
-        position: absolute;
+        padding: 1rem .5rem;
+        width: 100%;
     }
 
-    &__th {
+    &__tr {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;        
+        width: 100%;
+    }
+
+    &__title {
         font-size: 1.25rem;
-        padding: .5rem;
         text-align: left;
-        display: block;
+        display: inline-block;
         text-transform: capitalize;
     }
 
     &__tbody {
-        margin-top: 3.5rem;
         display: block;
         overflow: auto;
         width: 100%;
@@ -36,12 +42,23 @@
     }
 }
 
-// @media screen and (min-width: $breakpoint-mobile) {
-
-// }
+@media screen and (min-width: $breakpoint-tablet) {
+    .countries-table {
+        &__title {
+            font-size: 1.5rem;
+        }
+    }
+}
 
 @media screen and (min-width: $breakpoint-desktop) {
     .countries-table {
         grid-column: 1 / 2;
+
+        // &__tr {
+        //     align-items: center;
+        //     justify-content: space-between;
+        //     flex-direction: row;
+        //     flex-wrap: wrap;
+        // }
     }   
 }
