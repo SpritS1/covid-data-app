@@ -19,7 +19,7 @@ const CountriesTable = ({ countriesData }) => {
                 {sortedCountriesData && sortedCountriesData.map((countryData) => {
                     if (countryData.confirmed && countryData.deaths && countryData.country_iso2s.length) {
                         return <TableRow countryData={countryData} key={countryData.country}/>
-                    }
+                    } else return null;
                 }
                 )}
             </tbody>

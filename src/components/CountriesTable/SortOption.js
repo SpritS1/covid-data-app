@@ -10,7 +10,7 @@ const SortOption = ({optionName = 'New cases', sortingName, sortedColumn, setSor
         if (sortedColumn !== sortingName) {
             setSortMode('desc')
         }
-    }, [sortedColumn])
+    }, [sortedColumn, sortingName])
 
     const handleClick = () => {
         setSortedColumn(sortingName);

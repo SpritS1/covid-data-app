@@ -9,7 +9,7 @@ const Global = ({ countriesData }) => {
             deaths: 0,
             deaths_daily: 0
         };
-        console.log(countriesData)
+
         for (const data of countriesData) {
             globalData.confirmed += data.confirmed;
             globalData.confirmed_daily += data.confirmed_daily;

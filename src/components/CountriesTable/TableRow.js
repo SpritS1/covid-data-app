@@ -7,16 +7,30 @@ const TableRow = ({countryData}) => {
         <tr className='table-row'>
             <td className='table-row__td'>
                 <div className="table-row__td-wrapper">
-                { iso && countryData.country !== 'United Kingdom' &&
+                { iso && countryData.country !== 'United Kingdom' && countryData.country !== 'France' && countryData.country !== 'Netherlands' &&
                     <img
                         src={`https://flagcdn.com/24x18/${iso.toString().toLowerCase()}.png`}
                         alt={countryData.country + ' flag'}>
                     </img>
                 }
-                {/* UK ISO2s are broken :c */}
+                {/* Broken ISO2s exceptions*/}
                 { countryData.country === 'United Kingdom' && 
                     <img
                         src={`https://flagcdn.com/24x18/gb.png`}
+                        alt={countryData.country + ' flag'}>
+                    </img>
+                }
+
+                { countryData.country === 'France' && 
+                    <img
+                        src={`https://flagcdn.com/24x18/fr.png`}
+                        alt={countryData.country + ' flag'}>
+                    </img>
+                }
+
+                { countryData.country === 'Netherlands' && 
+                    <img
+                        src={`https://flagcdn.com/24x18/nl.png`}
                         alt={countryData.country + ' flag'}>
                     </img>
                 }

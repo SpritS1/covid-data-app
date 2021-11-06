@@ -22,6 +22,8 @@ body {
 @media screen and (min-width: $breakpoint-tablet) {
     .home {
         padding: 2rem;
+        grid-template-rows: auto auto auto auto 1fr;
+
     }
 }
 

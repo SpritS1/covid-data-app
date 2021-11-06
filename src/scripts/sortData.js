@@ -6,6 +6,8 @@ const sortData = (sortedElement, data, sortingDirection = 'desc') => {
             return b[sortedElement] - a[sortedElement];
         } else if (sortingDirection === 'asc') {
             return a[sortedElement] - b[sortedElement];
+        } else {
+            return null;
         }
     })
 
