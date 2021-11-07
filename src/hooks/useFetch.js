@@ -4,7 +4,7 @@ const useFetch = (url, options) => {
     const [response, setResponse] = useState(null);
     const [error, setError] = useState(null);
 
-    const fetchData = async (url, options) => {
+    const fetchData = async () => {
         try {
             const res = await fetch(url, options);
             const data = await res.json();            
@@ -16,8 +16,9 @@ const useFetch = (url, options) => {
     }
 
     useEffect(() => {
-        fetchData(url, options);
-    }, [url, options])
+        fetchData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return { response, error };
 }

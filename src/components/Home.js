@@ -1,4 +1,3 @@
-// import { useState, useEffect } from 'react';
 import './Home.scss';
 import Global from './Global';
 import CountriesTable from './CountriesTable/CountriesTable';
@@ -11,7 +10,10 @@ import { useState } from 'react';
 const Home = () => {
     const [date, setDate] = useState(getDate(-1));
     const url = `https://webhooks.mongodb-stitch.com/api/client/v2.0/app/covid-19-qppza/service/REST-API/incoming_webhook/countries_summary?&min_date=${date}&max_date=${date}`;
-    const {response: countriesData, error} = useFetch(url, {});
+    const fetchOptions = {
+        headers: { 'Content-Type': 'application/json' }
+    }
+    const {response: countriesData, error} = useFetch(url, fetchOptions);
 
     return ( 
         <div className="home">
