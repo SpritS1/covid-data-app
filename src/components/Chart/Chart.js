@@ -64,6 +64,7 @@ const Chart = () => {
 
     const options = {
         responsive: true,
+        maintainAspectRatio: false,
         elements: {
             point: {
                 radius: 2,
@@ -84,11 +85,12 @@ const Chart = () => {
     return ( 
         <div className="chart">
             <h2 className="chart__title">New Cases</h2>
-            <Line
-                data={data}
-                options={options}
-                height={200}
-            />
+            <div className="chart__body">
+                <Line
+                    data={data}
+                    options={options}
+                />
+            </div>
         </div>
      );
 }

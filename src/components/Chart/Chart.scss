@@ -5,9 +5,20 @@
     padding: 1rem;
     border-radius: $border-radius;
     box-shadow: $box-shadow;
+    overflow: auto;
 
     &__title {
         padding: .5rem 0 0 0;
         margin-bottom: 2rem;
+    }
+
+    &__body {
+        height: 300px;
+    }
+}
+
+@media screen and (min-width: $breakpoint-desktop) {
+    .chart {
+        grid-column: 6 / 13;
     }
 }
