@@ -6,6 +6,7 @@ import Map from './Map/Map';
 import useFetch from '../hooks/useFetch';
 import getDate from '../scripts/getDate';
 import { useState } from 'react';
+import Chart from './Chart/Chart';
 
 const Home = () => {
     const [date, setDate] = useState(getDate(-1));
@@ -21,6 +22,7 @@ const Home = () => {
             {countriesData && <Global countriesData={countriesData}/>}
             {countriesData && <CountriesTable countriesData={countriesData}/>}
             {countriesData && <Map countriesData={countriesData} />}
+            {countriesData && <Chart />}
         </div>
      );
 }
