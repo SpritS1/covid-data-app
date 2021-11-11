@@ -30,6 +30,12 @@ body {
 @media screen and (min-width: $breakpoint-desktop) {
     .home {
         grid-template-columns: repeat(12, 1fr);
-        // grid-template-rows: auto auto auto auto auto;
+    }
+
+    .cases {
+        grid-column: 1 / 7;
+    }
+    .deaths {
+        grid-column: 7 / 13;
     }
 }
