@@ -5,9 +5,9 @@ import { useEffect, useState } from 'react';
 import getDate from '../../scripts/getDate';
 import moment from 'moment';
 
-const Chart = ({ chartColor, dataName, label, className }) => {
-    const date = getDate(-30);
-    const url = `https://webhooks.mongodb-stitch.com/api/client/v2.0/app/covid-19-qppza/service/REST-API/incoming_webhook/countries_summary?min_date=${date}&hide_fields=_id,uids,country,states,country_iso2s,population,recovered,confirmed,deaths,country_iso3s,country_codes,combined_names,recovered_daily`;
+const Chart = ({ chartColor, dataName, label, className, date }) => {
+    const chartMinDate = moment(date).subtract(30, 'days').format('YYYY-MM-DD');
+    const url = `https://webhooks.mongodb-stitch.com/api/client/v2.0/app/covid-19-qppza/service/REST-API/incoming_webhook/countries_summary?min_date=${chartMinDate}&hide_fields=_id,uids,country,states,country_iso2s,population,recovered,confirmed,deaths,country_iso3s,country_codes,combined_names,recovered_daily`;
     const {response: covidData, error} = useFetch(url, {})
     const [chartData, setChartData] = useState(null);
 

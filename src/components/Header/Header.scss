@@ -13,26 +13,6 @@
     &__text {
         font-size: 1.25rem;
     }
-    
-    &__date {
-        font-size: .95rem;
-        background: $black-gradient;
-        color: $white;
-        padding: .5rem;
-        border-radius: $border-radius * .5;
-
-        &::before {
-            display: inline-block;
-            font-style: normal;
-            font-variant: normal;
-            text-rendering: auto;
-            -webkit-font-smoothing: antialiased;
-            font-family: "Font Awesome 5 Free";
-            font-weight: 400;
-            content: "\f017";
-            margin-right: .25rem;
-        }
-    }
 }
 
 @media screen and (min-width: $breakpoint-mobile) {

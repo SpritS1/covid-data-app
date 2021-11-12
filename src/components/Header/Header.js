@@ -1,13 +1,12 @@
 import './Header.scss'
-import getDate from '../../scripts/getDate';
+import DateInput from './DateInput';
 
-const Header = () => {
-    const currentDate = getDate();
+const Header = ({ date, setDate }) => {
  
     return ( 
         <header className='header'>
             <h1 className="header__text">COVID-19 Data</h1>
-            <div className="header__date">{currentDate}</div>
+                <DateInput date={date} setDate={setDate}/>
         </header>
      );
 }
