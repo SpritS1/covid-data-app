@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import './DateInput.scss';
 
 const DateInput = ({ date, setDate }) => {
@@ -9,6 +9,12 @@ const DateInput = ({ date, setDate }) => {
     const [day, setDay] = useState(moment(date).format('DD'));
 
     const yearRef = useRef();
+
+    useEffect(() => {
+        setYear(moment(date).format('YYYY'));
+        setMonth(moment(date).format('MM'));
+        setDay(moment(date).format('DD'));
+    }, [date])
 
     const handleOnMouseLeave = () => {
         if (year === "") {
@@ -24,8 +30,8 @@ const DateInput = ({ date, setDate }) => {
         setIsInputActive(false)
 
         const newDate = moment(`${year}-${month}-${day}`, 'YYYY-MM-DD');
-        
-        setDate(newDate._i);
+
+        setDate(newDate.format('YYYY-MM-DD'));
     }
 
     const handleInputClick = () => {
@@ -34,7 +40,6 @@ const DateInput = ({ date, setDate }) => {
     }
 
     const handleYearInput = (year) => {
-        console.log(year)
         if (year <= moment().format('YYYY') || year === "") {
             setYear(year);
         }
