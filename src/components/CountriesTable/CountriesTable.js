@@ -1,18 +1,22 @@
 import TableRow from './TableRow';
 import SortBy from './SortBy';
 import './CountriesTable.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import sortData from '../../scripts/sortData';
 
 const CountriesTable = ({ countriesData }) => {
     const [sortedCountriesData, setSortedCountriesData] = useState(() => sortData('confirmed_daily', countriesData, 'desc'));
+
+    useEffect(() => { 
+        setSortedCountriesData(sortData('confirmed_daily', countriesData, 'desc'))
+    }, [countriesData])
 
     return ( 
         <table className="countries-table" >
             <thead className='countries-table__thead'>
                 <tr className='countries-table__tr'>
                     <th className='countries-table__title'>Cases and deaths by country</th>
-                    <SortBy sortedCountriesData={sortedCountriesData} setSortedCountriesData={setSortedCountriesData}/>
+                    <SortBy countriesData={countriesData} sortedCountriesData={sortedCountriesData} setSortedCountriesData={setSortedCountriesData}/>
                 </tr>
             </thead>
             <tbody className='countries-table__tbody'>

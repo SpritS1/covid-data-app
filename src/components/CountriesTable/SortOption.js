@@ -2,24 +2,29 @@ import { useEffect, useState } from 'react';
 import './SortOption.scss';
 import sortData from '../../scripts/sortData';
 
-const SortOption = ({optionName = 'New cases', sortingName, sortedColumn, setSortedColumn, sortedCountriesData, setSortedCountriesData}) => {
-    const [sortMode, setSortMode] = useState('asc');
+const SortOption = ({optionName = 'New cases', columnName, sortedColumn, setSortedColumn, sortedCountriesData, setSortedCountriesData}) => {
+    const [sortMode, setSortMode] = useState('desc');
 
     // If other column is sorted set sortMode to default desc value
     useEffect(() => {
-        if (sortedColumn !== sortingName) {
+        if (sortedColumn !== columnName) {
             setSortMode('desc')
         }
-    }, [sortedColumn, sortingName])
+    }, [sortedColumn, columnName])
 
     const handleClick = () => {
-        setSortedColumn(sortingName);
-        setSortedCountriesData(sortData(sortingName, sortedCountriesData, sortMode));
-        sortMode === 'desc' ? setSortMode('asc') : setSortMode('desc'); 
+        if (columnName === sortedColumn) {
+            sortMode === 'desc' ? setSortMode('asc') : setSortMode('desc'); 
+            setSortedCountriesData(sortData(columnName, sortedCountriesData, sortMode === 'asc' ? 'desc' : 'asc'));
+        } else if (columnName !== sortedColumn) {
+            setSortedColumn(columnName);
+            setSortedCountriesData(sortData(columnName, sortedCountriesData, sortMode === 'asc' ? 'asc' : 'desc'));
+        }
+
     }
 
     return ( 
-        <li className={`sort-option ${sortedColumn === sortingName ? 'active' : ''} ${sortMode === 'asc' ? 'desc' : 'asc'}`} onClick={() => handleClick()}>{ optionName }</li>
+        <li className={`sort-option ${sortedColumn === columnName ? 'active' : ''} ${sortMode === 'asc' ? 'asc' : 'desc'}`} onClick={() => handleClick()}>{ optionName }</li>
      );
 }
  

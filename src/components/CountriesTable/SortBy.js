@@ -1,9 +1,13 @@
 import './SortBy.scss';
 import SortOption from './SortOption';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const SortBy = ({ sortedCountriesData, setSortedCountriesData }) => {
+const SortBy = ({ countriesData, sortedCountriesData, setSortedCountriesData }) => {
     const [sortedColumn, setSortedColumn] = useState('confirmed_daily');
+
+    useEffect(() => {
+        setSortedColumn('confirmed_daily');
+    }, [countriesData])
 
     return ( 
         <th className="sort-by">
@@ -13,7 +17,7 @@ const SortBy = ({ sortedCountriesData, setSortedCountriesData }) => {
                     optionName='New cases' 
                     sortedColumn={sortedColumn} 
                     setSortedColumn={setSortedColumn} 
-                    sortingName='confirmed_daily' 
+                    columnName='confirmed_daily' 
                     sortedCountriesData={sortedCountriesData} 
                     setSortedCountriesData={setSortedCountriesData}
                 />
@@ -21,7 +25,7 @@ const SortBy = ({ sortedCountriesData, setSortedCountriesData }) => {
                     optionName='Cases'
                     sortedColumn={sortedColumn}
                     setSortedColumn={setSortedColumn}
-                    sortingName='confirmed'
+                    columnName='confirmed'
                     sortedCountriesData={sortedCountriesData}
                     setSortedCountriesData={setSortedCountriesData}
                 />
@@ -29,7 +33,7 @@ const SortBy = ({ sortedCountriesData, setSortedCountriesData }) => {
                     optionName='New deaths' 
                     sortedColumn={sortedColumn} 
                     setSortedColumn={setSortedColumn} 
-                    sortingName='deaths_daily' 
+                    columnName='deaths_daily' 
                     sortedCountriesData={sortedCountriesData} 
                     setSortedCountriesData={setSortedCountriesData}
                 />
@@ -37,7 +41,7 @@ const SortBy = ({ sortedCountriesData, setSortedCountriesData }) => {
                     optionName='Deaths' 
                     sortedColumn={sortedColumn} 
                     setSortedColumn={setSortedColumn} 
-                    sortingName='deaths' 
+                    columnName='deaths' 
                     sortedCountriesData={sortedCountriesData} 
                     setSortedCountriesData={setSortedCountriesData}
                 />
