@@ -5,40 +5,68 @@ import { useEffect, useState } from 'react';
 import ChartOptions from './ChartOptions';
 import moment from 'moment';
 
-const Chart = ({ chartColor, dataName, label, className, date }) => {
+const Chart = ({ date }) => {
     const [chartData, setChartData] = useState(null);
     const [chartRange, setChartRange] = useState(7);
-    console.log('Date: ' + date);
+    const [chartMode, setChartMode] = useState('cases')
+
+    const [chartColor, setChartColor] = useState('33, 212, 253');
+    const [dataName, setDataName] = useState('confirmed_daily');
+    const [label, setLabel] = useState('New Cases');
+
     const chartMinDate = moment(date).subtract(chartRange, 'days').format('YYYY-MM-DD');
-    console.log('Min Date: ' + chartMinDate);
     const url = `https://webhooks.mongodb-stitch.com/api/client/v2.0/app/covid-19-qppza/service/REST-API/incoming_webhook/countries_summary?min_date=${chartMinDate}&max_date=${date}&hide_fields=_id,uids,country,states,country_iso2s,population,recovered,confirmed,deaths,country_iso3s,country_codes,combined_names,recovered_daily`;
     const {response: covidData, error} = useFetch(url, {})
 
-    // Converts data from API to display it in the chart
-    const convertToChartData = (data) => {
-        const convertedData = [];
+    const casesOptions = {
+        chartColor: '33, 212, 253', 
+        dataName: 'confirmed_daily',
+        label: 'New Cases'
+    }
 
-        data.forEach(element => {
-            let isDateInArray = false;
-
-            convertedData.forEach(convertedElement => {
-                if (convertedElement && convertedElement.date === element.date) {
-                    convertedElement.confirmed_daily += element.confirmed_daily;
-                    convertedElement.deaths_daily += element.deaths_daily;
-
-                    isDateInArray = true;
-                }
-            })
-            if (!isDateInArray) {
-                convertedData.push(element);
-            }
-
-        })
-
-        return convertedData;
-    };
+    const deathsOptions = {
+        chartColor: '51, 51, 51', 
+        dataName: 'deaths_daily',
+        label: 'New Deaths'
+    }
 
     useEffect(() => {
+        if (chartMode === 'cases') {
+            setChartColor(casesOptions.chartColor);
+            setDataName(casesOptions.dataName);
+            setLabel(casesOptions.label);
+        } else if (chartMode === 'deaths') {
+            setChartColor(deathsOptions.chartColor);
+            setDataName(deathsOptions.dataName);
+            setLabel(deathsOptions.label);
+        }
+    }, [chartMode])
+
+    useEffect(() => {
+        // Converts data from API to display it in the chart
+        const convertToChartData = (data) => {
+            const convertedData = [];
+
+            data.forEach(element => {
+                let isDateInArray = false;
+
+                convertedData.forEach(convertedElement => {
+                    if (convertedElement && convertedElement.date === element.date) {
+                        convertedElement.confirmed_daily += element.confirmed_daily;
+                        convertedElement.deaths_daily += element.deaths_daily;
+
+                        isDateInArray = true;
+                    }
+                })
+                if (!isDateInArray) {
+                    convertedData.push(element);
+                }
+
+            })
+
+            return convertedData;
+        };
+
         if (covidData) {
             setChartData(convertToChartData(covidData));
         }
@@ -84,9 +112,9 @@ const Chart = ({ chartColor, dataName, label, className, date }) => {
     }
 
     return ( 
-        <div className={`chart ${className}`}>
-            <h2 className="chart__title">{label}</h2>
-            <ChartOptions chartRange={chartRange} setChartRange={setChartRange}/>
+        <div className={`chart`}>
+            <h2 className="chart__title">Statiscits</h2>
+            <ChartOptions chartRange={chartRange} setChartRange={setChartRange} chartMode={chartMode} setChartMode={setChartMode}/>
             <div className="chart__body">
                 <Line
                     data={data}

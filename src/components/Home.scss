@@ -32,10 +32,8 @@ body {
         grid-template-columns: repeat(12, 1fr);
     }
 
-    .cases {
-        grid-column: 1 / 7;
-    }
-    .deaths {
+    .chart {
         grid-column: 7 / 13;
     }
+
 }
