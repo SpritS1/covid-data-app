@@ -22,8 +22,7 @@ const Home = () => {
             {countriesData && <Global countriesData={countriesData}/>}
             {countriesData && <CountriesTable countriesData={countriesData}/>}
             {countriesData && <Map countriesData={countriesData} />}
-            {countriesData && <Chart className={'cases'} chartColor={'33, 212, 253'} dataName={'confirmed_daily'} label={'New Cases'} date={date}/>}
-            {/* {countriesData && <Chart className={'deaths'} chartColor={'51, 51, 51'} dataName={'deaths_daily'} label={'New Deaths'} date={date}/>} */}
+            {countriesData && <Chart date={date}/>}
         </div>
      );
 }
