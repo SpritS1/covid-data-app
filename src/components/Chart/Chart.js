@@ -2,14 +2,17 @@ import './Chart.scss';
 import { Line } from 'react-chartjs-2';
 import useFetch from '../../hooks/useFetch';
 import { useEffect, useState } from 'react';
-import getDate from '../../scripts/getDate';
+import ChartOptions from './ChartOptions';
 import moment from 'moment';
 
 const Chart = ({ chartColor, dataName, label, className, date }) => {
-    const chartMinDate = moment(date).subtract(30, 'days').format('YYYY-MM-DD');
-    const url = `https://webhooks.mongodb-stitch.com/api/client/v2.0/app/covid-19-qppza/service/REST-API/incoming_webhook/countries_summary?min_date=${chartMinDate}&hide_fields=_id,uids,country,states,country_iso2s,population,recovered,confirmed,deaths,country_iso3s,country_codes,combined_names,recovered_daily`;
-    const {response: covidData, error} = useFetch(url, {})
     const [chartData, setChartData] = useState(null);
+    const [chartRange, setChartRange] = useState(7);
+    console.log('Date: ' + date);
+    const chartMinDate = moment(date).subtract(chartRange, 'days').format('YYYY-MM-DD');
+    console.log('Min Date: ' + chartMinDate);
+    const url = `https://webhooks.mongodb-stitch.com/api/client/v2.0/app/covid-19-qppza/service/REST-API/incoming_webhook/countries_summary?min_date=${chartMinDate}&max_date=${date}&hide_fields=_id,uids,country,states,country_iso2s,population,recovered,confirmed,deaths,country_iso3s,country_codes,combined_names,recovered_daily`;
+    const {response: covidData, error} = useFetch(url, {})
 
     // Converts data from API to display it in the chart
     const convertToChartData = (data) => {
@@ -83,6 +86,7 @@ const Chart = ({ chartColor, dataName, label, className, date }) => {
     return ( 
         <div className={`chart ${className}`}>
             <h2 className="chart__title">{label}</h2>
+            <ChartOptions chartRange={chartRange} setChartRange={setChartRange}/>
             <div className="chart__body">
                 <Line
                     data={data}
