@@ -7,6 +7,7 @@ import useFetch from '../hooks/useFetch';
 import getDate from '../scripts/getDate';
 import { useState } from 'react';
 import Chart from './Chart/Chart';
+import Vaccination from './Vaccination/Vaccination';
 
 const Home = () => {
     const [date, setDate] = useState(getDate(-1));
@@ -23,6 +24,7 @@ const Home = () => {
             {countriesData && <CountriesTable countriesData={countriesData}/>}
             {countriesData && <Map countriesData={countriesData} />}
             {countriesData && <Chart date={date}/>}
+            {countriesData && <Vaccination />}
         </div>
      );
 }

@@ -1,0 +1,12 @@
+@import '../../scss/variables';
+
+.vaccination {
+    background: $white;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    padding: 2rem 1rem;
+
+    &__text {
+        margin-bottom: 1rem;
+    }
+}
