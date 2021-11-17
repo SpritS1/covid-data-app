@@ -2,7 +2,6 @@ import './ProgressBar.scss';
 
 const ProgressBar = ({valueMain, maxValueMain, valueSecondary, maxValueSecondary, mainColor, secondaryColor}) => {
     
-    
     const mainStyle = {
         width: `${(valueMain / maxValueMain) * 100}%`,
         backgroundColor: mainColor
