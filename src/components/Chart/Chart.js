@@ -91,12 +91,18 @@ const Chart = ({ date }) => {
         maintainAspectRatio: false,
         elements: {
             point: {
-                radius: 2,
+                radius: 0,
+                hoverRadius: 5,
+                hitRadius: 200,
             }
         },
         plugins: {
             legend: {
                 display: false
+            },
+            tooltips: {
+                mode: 'index',
+                intersect: false,
             }
         },
         scales: {
