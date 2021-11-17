@@ -1,7 +1,7 @@
 @mixin scrollbar {
     &::-webkit-scrollbar {
-        width: 10px;
-        height: 10px;
+        width: 12px;
+        height: 12px;
     }
     &::-webkit-scrollbar-button {
     width: 0px;
@@ -11,6 +11,10 @@
     background: $black;
     border: none;
     border-radius: $border-radius;
+
+    &:hover {
+        background: rgba($black, .85);
+    }
     }
 
     &::-webkit-scrollbar-track {
