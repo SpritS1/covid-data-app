@@ -14,17 +14,27 @@
         list-style: none;
         display: flex;
         flex-wrap: wrap;
+        align-items: center;
+        // justify-content: space-between;
         gap: 1rem;
-        justify-content: space-between;
         width: 100%;
     }
     
     &__info-item {
-        flex: 1 1 100px;
+        flex: 1 0 100px;
         display: flex;
-        flex-direction: column;
-        gap: .25rem;
+        gap: .5rem;
         font-size: .9rem;
+
+        &-right {
+            display: flex;
+            gap: .25rem;
+            flex-direction: column;
+        }
+    }
+
+    &__info-text {
+        white-space: nowrap;
     }
 
     &__info-value {

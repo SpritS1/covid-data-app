@@ -1,7 +1,6 @@
 import './Vaccination.scss';
 import Progress from './Progress';
 import useFetch from '../../hooks/useFetch';
-import { useEffect } from 'react';
 
 const Vaccination = () => {
     const {response: vaccinationData, error} = useFetch(

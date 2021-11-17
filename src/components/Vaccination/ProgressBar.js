@@ -4,12 +4,12 @@ const ProgressBar = ({valueMain, maxValueMain, valueSecondary, maxValueSecondary
     
     const mainStyle = {
         width: `${(valueMain / maxValueMain) * 100}%`,
-        backgroundColor: mainColor
+        background: mainColor
     }
 
     const secondaryStyle = {
         width: `${(valueSecondary / maxValueSecondary) * 100}%`,
-        backgroundColor: secondaryColor
+        background: secondaryColor
     }
 
     return ( 
