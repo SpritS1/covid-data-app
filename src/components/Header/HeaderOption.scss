@@ -1,0 +1,14 @@
+@import '../../scss/variables';
+
+.header-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $black-gradient;
+    box-shadow: $box-shadow;
+    border-radius: $border-radius;
+    color: $white;
+    padding: .75rem;
+    font-size: 1rem;
+    cursor: pointer;
+}

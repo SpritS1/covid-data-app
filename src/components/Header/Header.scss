@@ -13,6 +13,11 @@
     &__text {
         font-size: 1.25rem;
     }
+
+    &__options {
+        display: flex;
+        gap: .5rem;
+    }
 }
 
 @media screen and (min-width: $breakpoint-mobile) {
