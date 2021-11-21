@@ -1,68 +1,73 @@
-import './Chart.scss';
-import { Line } from 'react-chartjs-2';
-import useFetch from '../../hooks/useFetch';
-import { useEffect, useState } from 'react';
-import ChartOptions from './ChartOptions';
-import moment from 'moment';
+import "./Chart.scss";
+import { Line } from "react-chartjs-2";
+import useFetch from "../../hooks/useFetch";
+import { useEffect, useState } from "react";
+import ChartOptions from "./ChartOptions";
+import moment from "moment";
 
-const Chart = ({ date }) => {
+const Chart = ({ date, selectedCountry }) => {
     const [chartData, setChartData] = useState(null);
     const [chartRange, setChartRange] = useState(7);
-    const [chartMode, setChartMode] = useState('cases')
+    const [chartMode, setChartMode] = useState("cases");
 
-    const [chartColor, setChartColor] = useState('33, 212, 253');
-    const [dataName, setDataName] = useState('confirmed_daily');
-    const [label, setLabel] = useState('New Cases');
+    const [chartColor, setChartColor] = useState("33, 212, 253");
+    const [dataName, setDataName] = useState("confirmed_daily");
+    const [label, setLabel] = useState("New Cases");
 
-    const chartMinDate = moment(date).subtract(chartRange, 'days').format('YYYY-MM-DD');
-    const url = `https://webhooks.mongodb-stitch.com/api/client/v2.0/app/covid-19-qppza/service/REST-API/incoming_webhook/countries_summary?min_date=${chartMinDate}&max_date=${date}&hide_fields=_id,uids,country,states,country_iso2s,population,recovered,confirmed,deaths,country_iso3s,country_codes,combined_names,recovered_daily`;
-    const {response: covidData, error} = useFetch(url, {})
+    const chartMinDate = moment(date)
+        .subtract(chartRange, "days")
+        .format("YYYY-MM-DD");
+    const url = `https://webhooks.mongodb-stitch.com/api/client/v2.0/app/covid-19-qppza/service/REST-API/incoming_webhook/countries_summary?${selectedCountry && selectedCountry.countryName !== "Global" ? `country=${selectedCountry.countryName}&` : ""}min_date=${chartMinDate}&max_date=${date}&hide_fields=_id,uids,country,states,country_iso2s,population,recovered,confirmed,deaths,country_iso3s,country_codes,combined_names,recovered_daily`;
+    const { response: covidData, error } = useFetch(url, {});
 
     const casesOptions = {
-        chartColor: '33, 212, 253', 
-        dataName: 'confirmed_daily',
-        label: 'New Cases'
-    }
+        chartColor: "33, 212, 253",
+        dataName: "confirmed_daily",
+        label: "New Cases",
+    };
 
     const deathsOptions = {
-        chartColor: '51, 51, 51', 
-        dataName: 'deaths_daily',
-        label: 'New Deaths'
-    }
+        chartColor: "51, 51, 51",
+        dataName: "deaths_daily",
+        label: "New Deaths",
+    };
 
     useEffect(() => {
-        if (chartMode === 'cases') {
+        if (chartMode === "cases") {
             setChartColor(casesOptions.chartColor);
             setDataName(casesOptions.dataName);
             setLabel(casesOptions.label);
-        } else if (chartMode === 'deaths') {
+        } else if (chartMode === "deaths") {
             setChartColor(deathsOptions.chartColor);
             setDataName(deathsOptions.dataName);
             setLabel(deathsOptions.label);
         }
-    }, [chartMode])
+    }, [chartMode]);
 
     useEffect(() => {
         // Converts data from API to display it in the chart
         const convertToChartData = (data) => {
             const convertedData = [];
 
-            data.forEach(element => {
+            data.forEach((element) => {
                 let isDateInArray = false;
 
-                convertedData.forEach(convertedElement => {
-                    if (convertedElement && convertedElement.date === element.date) {
-                        convertedElement.confirmed_daily += element.confirmed_daily;
+                convertedData.forEach((convertedElement) => {
+                    if (
+                        convertedElement &&
+                        convertedElement.date === element.date
+                    ) {
+                        convertedElement.confirmed_daily +=
+                            element.confirmed_daily;
                         convertedElement.deaths_daily += element.deaths_daily;
 
                         isDateInArray = true;
                     }
-                })
+                });
                 if (!isDateInArray) {
                     convertedData.push(element);
                 }
-
-            })
+            });
 
             return convertedData;
         };
@@ -70,21 +75,24 @@ const Chart = ({ date }) => {
         if (covidData) {
             setChartData(convertToChartData(covidData));
         }
-    }, [covidData])
+    }, [covidData]);
 
     const data = {
-        labels: chartData && chartData.map(({ date }) => moment(date).format('MMM DD')),
+        labels:
+            chartData &&
+            chartData.map(({ date }) => moment(date).format("MMM DD")),
         datasets: [
             {
                 label: label,
-                data: chartData && chartData.map(element => element[dataName]),
+                data:
+                    chartData && chartData.map((element) => element[dataName]),
                 borderColor: `rgba(${chartColor}, 1)`,
                 fill: true,
                 tension: 0.2,
                 backgroundColor: `rgba(${chartColor}, 0.2)`,
-            }
+            },
         ],
-    }
+    };
 
     const options = {
         responsive: true,
@@ -94,41 +102,44 @@ const Chart = ({ date }) => {
                 radius: 0,
                 hoverRadius: 5,
                 hitRadius: 200,
-            }
+            },
         },
         plugins: {
             legend: {
-                display: false
+                display: false,
             },
             tooltips: {
-                mode: 'index',
+                mode: "index",
                 intersect: false,
-            }
+            },
         },
         scales: {
             y: {
-                beginAtZero: true
+                beginAtZero: true,
             },
             x: {
                 ticks: {
-                    maxTicksLimit: chartData && (chartData.length / (chartData.length / 8))
-                }
-            }
-        }
-    }
+                    maxTicksLimit:
+                        chartData && chartData.length / (chartData.length / 8),
+                },
+            },
+        },
+    };
 
-    return ( 
+    return (
         <div className={`chart`}>
             <h2 className="chart__title">Statistics</h2>
-            <ChartOptions chartRange={chartRange} setChartRange={setChartRange} chartMode={chartMode} setChartMode={setChartMode}/>
+            <ChartOptions
+                chartRange={chartRange}
+                setChartRange={setChartRange}
+                chartMode={chartMode}
+                setChartMode={setChartMode}
+            />
             <div className="chart__body">
-                <Line
-                    data={data}
-                    options={options}
-                />
+                <Line data={data} options={options} />
             </div>
         </div>
-     );
-}
- 
+    );
+};
+
 export default Chart;

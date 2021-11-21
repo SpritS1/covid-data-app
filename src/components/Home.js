@@ -29,7 +29,7 @@ const Home = () => {
             {countriesData && <Global countriesData={countriesData}/>}
             {countriesData && <CountriesTable countriesData={countriesData}/>}
             {countriesData && <Map countriesData={countriesData} />}
-            {countriesData && <Chart date={date}/>}
+            {countriesData && <Chart date={date} selectedCountry={selectedCountry}/>}
             {countriesData && <Vaccination selectedCountry={selectedCountry}/>}
         </div>
      );
