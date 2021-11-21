@@ -11,7 +11,7 @@ import Vaccination from './Vaccination/Vaccination';
 
 const Home = () => {
     const [date, setDate] = useState(getDate(-1));
-    const [selectedCountry, setSelectedCountry] = useState({name: 'Global', iso2: null});
+    const [selectedCountry, setSelectedCountry] = useState({countryName: 'Global', iso2: null});
     const url = `https://webhooks.mongodb-stitch.com/api/client/v2.0/app/covid-19-qppza/service/REST-API/incoming_webhook/countries_summary?&min_date=${date}&max_date=${date}`;
     const fetchOptions = {
         headers: { 'Content-Type': 'application/json' }
@@ -30,7 +30,7 @@ const Home = () => {
             {countriesData && <CountriesTable countriesData={countriesData}/>}
             {countriesData && <Map countriesData={countriesData} />}
             {countriesData && <Chart date={date}/>}
-            {countriesData && <Vaccination />}
+            {countriesData && <Vaccination selectedCountry={selectedCountry}/>}
         </div>
      );
 }

@@ -1,22 +1,35 @@
 import './Progress.scss';
 import ProgressBar from './ProgressBar';
 
-const Progress = ({ title, fullyVac = 100, partiallyVac = 500, population = 1000}) => {
-
+const Progress = ({ title, fullyVac, partiallyVac, population, isActive = false}) => {
+    
     return ( 
         <div className="progress">
             <div className="progress__header">
-                <h3 className="progress__text">{title} progress</h3>
+                <h3 className="progress__text">{title}</h3>
             </div>
 
-            <ProgressBar
-                valueMain={fullyVac}
-                maxValueMain={population}
-                valueSecondary={partiallyVac}
-                maxValueSecondary={population}
-                mainColor="#1ebfe3"
-                secondaryColor="#A5D7E2"
-            />
+            {isActive && (
+                <ProgressBar
+                    valueMain={fullyVac}
+                    maxValueMain={population}
+                    valueSecondary={partiallyVac}
+                    maxValueSecondary={population}
+                    mainColor="#1ebfe3"
+                    secondaryColor="#A5D7E2"
+                />
+            )}
+
+            {!isActive && (
+                <ProgressBar 
+                    // valueMain='24'
+                    // maxValueMain='100'
+                    // valueSecondary='35'
+                    // maxValueSecondary='100'
+                    // mainColor="#a0a0a0"
+                    // secondaryColor="#c6c6c6"
+                />
+            )}
             
             <ul className="progress__info-list">
                 <li className="progress__info-item">
