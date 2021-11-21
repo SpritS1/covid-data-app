@@ -9,6 +9,8 @@
     padding: 1rem;
     border-radius: $border-radius;
     min-width: 250px;
+    height: 80vh;
+    max-height: 600px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 
     &__header {
@@ -35,7 +37,7 @@
         flex-direction: column;
         list-style: none;
         overflow-y: auto;
-        max-height: 50vh;
+        max-height: 100%;
 
         @include scrollbar;
     }
@@ -46,7 +48,7 @@
         padding: .5rem;
         gap: .5rem;
         cursor: pointer;
-        max-width: 250px;
+        max-width: 200px;
         
         &:hover {
             color: rgba($font-color-blue, .75);
