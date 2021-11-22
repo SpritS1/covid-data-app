@@ -11,6 +11,7 @@ const Header = ({ date, setDate, selectedCountry, setSelectedCountry, countriesD
                 <div className="header__options">
                     <HeaderOption 
                         iconId='far fa-flag'
+                        bodyContent={selectedCountry.countryName}
                         modalContent={<CountryChange 
                             countriesData={countriesData}
                             country={selectedCountry}
@@ -20,6 +21,7 @@ const Header = ({ date, setDate, selectedCountry, setSelectedCountry, countriesD
                     />
                     <HeaderOption 
                         iconId='far fa-calendar-alt' 
+                        bodyContent={date}
                         modalContent={<DateChange date={date} setDate={setDate}/>}
                     />
                 </div>
