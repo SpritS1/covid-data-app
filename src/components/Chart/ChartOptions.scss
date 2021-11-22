@@ -2,6 +2,9 @@
 
 .chart-options {
     display: flex;
+    // flex-wrap: wrap;
     gap: 1rem;
-    margin-bottom: 2rem;
+    padding: 0 0 1rem 0;
+    white-space: nowrap;
+    margin-bottom: 1rem;
 }
