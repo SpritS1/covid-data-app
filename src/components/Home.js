@@ -26,7 +26,7 @@ const Home = () => {
                 selectedCountry={selectedCountry}
                 setSelectedCountry={setSelectedCountry}
                 countriesData={countriesData}/>
-            {countriesData && <BasicDataDisplay countriesData={countriesData}/>}
+            {countriesData && <BasicDataDisplay countriesData={countriesData} selectedCountry={selectedCountry}/>}
             {countriesData && <CountriesTable countriesData={countriesData}/>}
             {countriesData && <Map countriesData={countriesData} />}
             {countriesData && <Chart date={date} selectedCountry={selectedCountry}/>}

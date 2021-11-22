@@ -1,7 +1,7 @@
 import { useMemo } from "react/cjs/react.development";
 import "./BasicDataDisplay.scss";
 
-const BasicDataDisplay = ({ countriesData }) => {
+const BasicDataDisplay = ({ countriesData, selectedCountry }) => {
     const globalData = useMemo(() => {
         const globalData = {
             confirmed: 0,
@@ -20,9 +20,18 @@ const BasicDataDisplay = ({ countriesData }) => {
         return globalData;
     }, [countriesData]);
 
+    const getSelectedCountryFromCountriesData = () => {
+        for (const country of countriesData) {
+            if (country.country === selectedCountry.countryName) return country;
+        }
+        return null;
+    }
+
+    const selectedCountryData = getSelectedCountryFromCountriesData();
+
     return (
         <div className="basic-data-display">
-            <h2 className="basic-data-display__header">Global Statistics</h2>
+            <h2 className="basic-data-display__header">{selectedCountry.countryName} Statistics</h2>
 
             <div className="basic-data-display__data">
                 <div className="basic-data-display__data-left">
@@ -30,8 +39,8 @@ const BasicDataDisplay = ({ countriesData }) => {
                         New cases
                     </span>
                     <p className="basic-data-display__data-value">
-                        {globalData &&
-                            globalData.confirmed_daily.toLocaleString()}{" "}
+                        {selectedCountryData && selectedCountryData.confirmed_daily.toLocaleString()}
+                        {!selectedCountryData && globalData && globalData.confirmed_daily.toLocaleString()}
                         <span className="basic-data-display__data-new-value plus">
                             +2412
                         </span>
@@ -47,7 +56,8 @@ const BasicDataDisplay = ({ countriesData }) => {
                         New Deaths
                     </span>
                     <p className="basic-data-display__data-value">
-                        {globalData && globalData.deaths_daily.toLocaleString()}{" "}
+                        {selectedCountryData && selectedCountryData.deaths_daily.toLocaleString()}
+                        {!selectedCountryData && globalData && globalData.deaths_daily.toLocaleString()}
                         <span className="basic-data-display__data-new-value minus">
                             -10
                         </span>
