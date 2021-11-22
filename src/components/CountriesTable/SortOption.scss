@@ -1,16 +1,20 @@
 @import '../../scss/variables';
 
 .sort-option {
-    padding: .25rem;
     cursor: pointer;
     transition: color .25s;
+    background: $black-gradient;
+    border-radius: $border-radius;
+    opacity: .5;
+    padding: .5rem;
+    color: $white;
 
     &:hover {
-        color: $blue;
+        opacity: .75;
     }
 
     &.active {
-        color: $blue;
+        opacity: 1;
     }
 
     &.asc:after, &.desc:after {
