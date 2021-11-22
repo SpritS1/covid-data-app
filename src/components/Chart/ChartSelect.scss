@@ -1,12 +1,13 @@
 @import '../../scss/variables';
 
-.chart-option {
+.chart-select {
+    min-width: 105px;
+    text-align: center;
     position: relative;
     font-size: .9rem;
-    padding: .5rem;
-    // background: $black;
-    // color: $white;
-    border: $black 1px solid;
+    padding: .5rem 1rem;
+    background: $black-gradient;
+    color: $white;
     border-radius: $border-radius;
     cursor: pointer;
     transition: .1s ease-in-out;
@@ -24,7 +25,7 @@
         font-family: "Font Awesome 5 Free";
         font-weight: 900;
         content: "\f107";
-        margin-left: .25rem;
+        margin-left: .5rem;
     }
 
     &__dropdown {
@@ -34,7 +35,7 @@
         top: -2px;
         min-width: 200px;
         z-index: 2;
-        // padding: 1rem 0;
+        text-align: left;
         color: $black;
         background: $white;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

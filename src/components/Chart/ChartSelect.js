@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './ChartSelect.scss';
 
-const ChartOption = ({options, currentOption, setCurrentOption}) => {
+const ChartSelect = ({options, currentOption, setCurrentOption}) => {
     const [isOptionActive, setIsOptionActive] = useState(false);
     const dropdownRef = useRef();
 
@@ -26,12 +26,12 @@ const ChartOption = ({options, currentOption, setCurrentOption}) => {
     }
 
     return ( 
-        <div className="chart-option" onClick={(e) => !isOptionActive && setIsOptionActive(true)}>
+        <div className="chart-select" onClick={(e) => !isOptionActive && setIsOptionActive(true)}>
             {currentOption}
             {isOptionActive && (
-                <ul className='chart-option__dropdown' ref={dropdownRef}>
+                <ul className='chart-select__dropdown' ref={dropdownRef}>
                     {options && options.map(({ value, name }) => {
-                        return <li className='chart-option__option' onClick={() => handleOptionSelect(value)} key={value}>{ name }</li>
+                        return <li className='chart-select__option' onClick={() => handleOptionSelect(value)} key={value}>{ name }</li>
                     })}
                 </ul>
             )}
@@ -39,4 +39,4 @@ const ChartOption = ({options, currentOption, setCurrentOption}) => {
      );
 }
  
-export default ChartOption;
+export default ChartSelect;
