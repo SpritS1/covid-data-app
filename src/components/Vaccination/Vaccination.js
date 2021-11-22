@@ -1,6 +1,7 @@
 import './Vaccination.scss';
 import Progress from './Progress';
 import useFetch from '../../hooks/useFetch';
+import getDate from '../../scripts/getDate';
 
 const Vaccination = ({ selectedCountry }) => {
     const {response: vaccinationGlobalData, errorGlobal} = useFetch(
@@ -20,6 +21,7 @@ const Vaccination = ({ selectedCountry }) => {
     return ( 
         <div className="vaccination">
             <h2 className="vaccination__title">COVID-19 Vaccines</h2>
+            <div className="vaccination__date">Last updated: {getDate()}</div>
             {vaccinationCountryData && selectedCountry.countryName !== 'Global' && (
                 <Progress 
                     title={`${selectedCountry.countryName} progress`}
