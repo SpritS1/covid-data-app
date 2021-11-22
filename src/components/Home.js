@@ -1,5 +1,5 @@
 import './Home.scss';
-import Global from './Global';
+import BasicDataDisplay from './BasicDataDisplay';
 import CountriesTable from './CountriesTable/CountriesTable';
 import Header from './Header/Header';
 import Map from './Map/Map';
@@ -26,7 +26,7 @@ const Home = () => {
                 selectedCountry={selectedCountry}
                 setSelectedCountry={setSelectedCountry}
                 countriesData={countriesData}/>
-            {countriesData && <Global countriesData={countriesData}/>}
+            {countriesData && <BasicDataDisplay countriesData={countriesData}/>}
             {countriesData && <CountriesTable countriesData={countriesData}/>}
             {countriesData && <Map countriesData={countriesData} />}
             {countriesData && <Chart date={date} selectedCountry={selectedCountry}/>}
