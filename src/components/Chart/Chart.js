@@ -128,7 +128,7 @@ const Chart = ({ date, selectedCountry }) => {
 
     return (
         <div className={`chart`}>
-            <h2 className="chart__title">Statistics</h2>
+            <h2 className="chart__title">{selectedCountry.countryName} Trend</h2>
             <ChartOptions
                 chartRange={chartRange}
                 setChartRange={setChartRange}

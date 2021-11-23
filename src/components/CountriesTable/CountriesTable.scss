@@ -10,11 +10,10 @@
     border-radius: $border-radius;
     border-collapse: collapse;
     overflow: hidden;
-    padding: .5rem;
+    padding: 2rem 1rem .5rem 1rem;
     
     &__thead {
         display: block;
-        padding: 1rem .5rem;
         width: 100%;
     }
 
@@ -57,12 +56,5 @@
 @media screen and (min-width: $breakpoint-desktop) {
     .countries-table {
         grid-column: 1 / 7;
-
-        // &__tr {
-        //     align-items: center;
-        //     justify-content: space-between;
-        //     flex-direction: row;
-        //     flex-wrap: wrap;
-        // }
     }   
 }

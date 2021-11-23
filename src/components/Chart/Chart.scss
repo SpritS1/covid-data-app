@@ -2,13 +2,12 @@
  
 .chart {
     background: $white;
-    padding: 1rem;
+    padding: 2rem 1rem 1rem 1rem;
     border-radius: $border-radius;
     box-shadow: $box-shadow;
     overflow: auto;
 
     &__title {
-        padding: .5rem 0 0 0;
         margin-bottom: 1rem;
     }
 
@@ -17,9 +16,3 @@
         min-width: 500px;
     }
 }
-
-// @media screen and (min-width: $breakpoint-desktop) {
-//     .chart {
-//         grid-column: 7 / 13;
-//     }
-// }
