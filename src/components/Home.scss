@@ -1,7 +1,9 @@
 @import '../scss/variables';
+@import '../scss/mixins';
 
 body {
     color: $font-color-blue;
+    @include scrollbar
 }
 
 .home {
