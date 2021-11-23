@@ -22,7 +22,7 @@ const SortBy = ({ countriesData, sortedCountriesData, setSortedCountriesData }) 
                     setSortedCountriesData={setSortedCountriesData}
                 />
                 <SortOption 
-                    optionName='Cases'
+                    optionName='Total Cases'
                     sortedColumn={sortedColumn}
                     setSortedColumn={setSortedColumn}
                     columnName='confirmed'
@@ -38,7 +38,7 @@ const SortBy = ({ countriesData, sortedCountriesData, setSortedCountriesData }) 
                     setSortedCountriesData={setSortedCountriesData}
                 />
                 <SortOption 
-                    optionName='Deaths' 
+                    optionName='Total Deaths' 
                     sortedColumn={sortedColumn} 
                     setSortedColumn={setSortedColumn} 
                     columnName='deaths' 
