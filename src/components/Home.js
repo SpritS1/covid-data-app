@@ -5,7 +5,7 @@ import Header from './Header/Header';
 import Map from './Map/Map';
 import useFetch from '../hooks/useFetch';
 import getDate from '../scripts/getDate';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Chart from './Chart/Chart';
 import Vaccination from './Vaccination/Vaccination';
 

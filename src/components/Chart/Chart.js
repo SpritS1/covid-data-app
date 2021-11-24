@@ -20,19 +20,19 @@ const Chart = ({ date, selectedCountry }) => {
     const url = `https://webhooks.mongodb-stitch.com/api/client/v2.0/app/covid-19-qppza/service/REST-API/incoming_webhook/countries_summary?${selectedCountry && selectedCountry.countryName !== "Global" ? `country=${selectedCountry.countryName}&` : ""}min_date=${chartMinDate}&max_date=${date}&hide_fields=_id,uids,country,states,country_iso2s,population,recovered,confirmed,deaths,country_iso3s,country_codes,combined_names,recovered_daily`;
     const { response: covidData, error } = useFetch(url, {});
 
-    const casesOptions = {
-        chartColor: "33, 212, 253",
-        dataName: "confirmed_daily",
-        label: "New Cases",
-    };
-
-    const deathsOptions = {
-        chartColor: "51, 51, 51",
-        dataName: "deaths_daily",
-        label: "New Deaths",
-    };
-
     useEffect(() => {
+        const casesOptions = {
+            chartColor: "33, 212, 253",
+            dataName: "confirmed_daily",
+            label: "New Cases",
+        };
+    
+        const deathsOptions = {
+            chartColor: "51, 51, 51",
+            dataName: "deaths_daily",
+            label: "New Deaths",
+        };
+
         if (chartMode === "cases") {
             setChartColor(casesOptions.chartColor);
             setDataName(casesOptions.dataName);

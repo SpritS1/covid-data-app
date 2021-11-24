@@ -17,7 +17,7 @@ const CountryChange = ({
          },
       ];
 
-      countriesData.map((country) => {
+      countriesData.forEach((country) => {
          if (country.country && country.country_iso2s) {
             array.push({
                countryName: country.country,
@@ -27,7 +27,7 @@ const CountryChange = ({
       });
 
       return array;
-   });
+   }, [countriesData]);
 
    const [searchedCountriesList, setSearchedCountriesList] =
       useState(countriesList);
@@ -42,6 +42,7 @@ const CountryChange = ({
          ) {
             return country;
          }
+         return null;
       });
 
       setSearchedCountriesList(searchedList);
@@ -49,7 +50,7 @@ const CountryChange = ({
 
    useEffect(() => {
       searchCountry(searchedValue, countriesList);
-   }, [searchedValue]);
+   }, [searchedValue, countriesList]);
 
    const handleClick = (country) => {
       setSelectedCountry(country);
@@ -92,6 +93,7 @@ const CountryChange = ({
                      </li>
                   );
                }
+               return null;
             })}
          </ul>
       </div>
