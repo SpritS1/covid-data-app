@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 const CountryChange = ({
    setIsActive,
    countriesData,
-   selectedCountry,
+   // selectedCountry,
    setSelectedCountry,
 }) => {
    // Converts countriesData to array of objects with countryName and iso2

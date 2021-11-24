@@ -1,4 +1,4 @@
-import { useMemo } from "react/cjs/react.development";
+import { useMemo } from "react";
 import "./BasicDataDisplay.scss";
 
 const BasicDataDisplay = ({ countriesData, selectedCountry }) => {
