@@ -4,9 +4,9 @@ import { useEffect, useRef, useState } from 'react';
 import getDate from '../../scripts/getDate';
 
 const DateChange = ({ date, setDate, setIsActive }) => {
-    const [year, setYear] = useState('');
-    const [month, setMonth] = useState('');
-    const [day, setDay] = useState('');
+    const [year, setYear] = useState(moment(date).format('YYYY'));
+    const [month, setMonth] = useState(moment(date).format('MM'));
+    const [day, setDay] = useState(moment(date).format('DD'));
 
     const yearRef = useRef();
 
