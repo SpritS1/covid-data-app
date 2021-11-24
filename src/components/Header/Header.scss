@@ -4,7 +4,7 @@
     position: sticky;
     top: .5rem;
     z-index: 5;
-    padding: 1rem;
+    padding: 1rem .5rem;
     margin: .25rem 0 0 0;
     background: $white;
     border-radius: $border-radius;
@@ -12,9 +12,21 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: .25rem;
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+    }
 
     &__text {
         font-size: 1.25rem;
+        display: none;
+    }
+
+    &__icon {
+        font-size: 2.5rem;
     }
 
     &__options {
@@ -27,6 +39,7 @@
     .header {
         &__text {
             font-size: 1.5rem;
+            display: block;
         }
     }
 }
