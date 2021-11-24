@@ -3,13 +3,13 @@ import './Map.scss';
 
 const Map = (props) => {
     const mapData = [['Country', 'Cases']];
-    // const appliedCountries = [];
 
     props.countriesData.forEach(({country_iso2s, confirmed_daily}) => {
         if (confirmed_daily) {
             if (country_iso2s.length > 0) {
                 country_iso2s.forEach(iso => {
                     const data = [iso, confirmed_daily];
+                    if (confirmed_daily < 0) data[1] = 0;
                     mapData.push(data);
                 });
             } else {
@@ -27,9 +27,6 @@ const Map = (props) => {
             data={mapData}
             options={{
                 colorAxis: {colors: ['#e6faff' , '#21d4fd', '#1EBFE3'],},
-                // keepAspectRatio: true,
-                // width: '600px',
-                // height: '100%',
             }}
             >
         </Chart>
