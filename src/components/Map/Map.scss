@@ -8,8 +8,6 @@
     box-shadow: $box-shadow;
     overflow-x: auto;
 
-    @include scrollbar;
-
     &__geochart {
         width: 800px;
     }
@@ -17,6 +15,8 @@
 
 @media screen and (min-width: $breakpoint-tablet) {
     .map {       
+        @include scrollbar;
+
         div {
             height: 100%;
         }

@@ -1,4 +1,5 @@
 @import '../../scss/variables';
+@import '../../scss/mixins';
  
 .chart {
     background: $white;
@@ -14,5 +15,11 @@
     &__body {
         height: 300px;
         min-width: 500px;
+    }
+}
+
+@media screen and (min-width: $breakpoint-tablet) {
+    .chart {
+        @include scrollbar;
     }
 }

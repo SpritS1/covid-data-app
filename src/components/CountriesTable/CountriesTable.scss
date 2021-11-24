@@ -11,7 +11,7 @@
     border-collapse: collapse;
     overflow: hidden;
     padding: 2rem 1rem .5rem 1rem;
-    
+
     &__thead {
         display: block;
         width: 100%;
@@ -35,9 +35,8 @@
         display: block;
         overflow: auto;
         width: 100%;
-        height: 200px;
-        
-        @include scrollbar;
+        height: 250px;
+        margin-top: .5rem;        
     }
 }
 
@@ -49,6 +48,7 @@
 
         &__tbody {
             height: 300px;
+            @include scrollbar;
         }
     }
 }

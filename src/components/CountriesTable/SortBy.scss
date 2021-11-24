@@ -1,4 +1,5 @@
 @import '../../scss/variables';
+@import '../../scss/mixins';
 
 .sort-by {
     font-weight: 400;
@@ -15,6 +16,12 @@
 
     &__text {
         font-weight: 700;
+    }
+}
+
+@media screen and (min-width: $breakpoint-tablet) {
+    .sort-by {
+        @include scrollbar;
     }
 }
 
