@@ -1,13 +1,13 @@
-@import '../../scss/variables';
+@import '/src/scss/_variables.scss';
+@import '/src/scss/_mixins.scss';
 
 .sort-option {
+    @include button-gray;
+
     cursor: pointer;
     transition: .2s ease-in-out;
-    background: $black-gradient;
-    border-radius: $border-radius;
     opacity: .5;
     padding: .5rem;
-    color: $white;
 
     &:hover {
         opacity: .75;

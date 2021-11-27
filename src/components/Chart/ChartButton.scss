@@ -1,15 +1,13 @@
-@import '../../scss/variables';
+@import '/src/scss/_variables.scss';
+@import '/src/scss/_mixins.scss';
 
 .chart-button {
+    @include button-gray;
     display: flex;
     align-items: center;
     font-size: .9rem;
     padding: .5rem 1rem;
-    background: $black-gradient;
     opacity: .5;
-    color: white;
-    border: none;
-    border-radius: $border-radius;
     cursor: pointer;
     transition: .2s ease-in-out;
 
@@ -19,8 +17,6 @@
     }
 
     &.active {
-        background: $black-gradient;
-        color: $white;
         opacity: 1;
         cursor: auto;
     }

@@ -22,7 +22,7 @@ const Chart = ({ date, selectedCountry }) => {
 
     useEffect(() => {
         const casesOptions = {
-            chartColor: "33, 212, 253",
+            chartColor: "30, 191, 227",
             dataName: "confirmed_daily",
             label: "New Cases",
         };

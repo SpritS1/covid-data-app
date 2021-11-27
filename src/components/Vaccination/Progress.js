@@ -20,17 +20,8 @@ const Progress = ({ title, fullyVac, partiallyVac, population, isActive = false}
                 />
             )}
 
-            {!isActive && (
-                <ProgressBar 
-                    // valueMain='24'
-                    // maxValueMain='100'
-                    // valueSecondary='35'
-                    // maxValueSecondary='100'
-                    // mainColor="#a0a0a0"
-                    // secondaryColor="#c6c6c6"
-                />
-            )}
-            
+            {!isActive && <ProgressBar />}
+
             <ul className="progress__info-list">
                 <li className="progress__info-item">
                     <div className="progress__info-item-left">

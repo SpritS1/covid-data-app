@@ -1,13 +1,13 @@
-@import '../../scss/variables';
+@import '/src/scss/_variables.scss';
+@import '/src/scss/_mixins.scss';
 
 .chart-select {
+    @include button-gray;
     min-width: 105px;
     text-align: center;
     position: relative;
     font-size: .9rem;
     padding: .5rem 1rem;
-    background: $black-gradient;
-    color: $white;
     border-radius: $border-radius;
     cursor: pointer;
     transition: .1s ease-in-out;

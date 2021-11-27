@@ -27,7 +27,7 @@ const Map = (props) => {
             data={mapData}
             options={{
                 region: props.selectedCountry.iso2,
-                colorAxis: {colors: ['#e6faff' , '#21d4fd', '#1EBFE3'],},
+                colorAxis: {colors: ['#ECFCFF' , '#1EBFE3', '#00A6DE'],},
             }}
             >
         </Chart>
