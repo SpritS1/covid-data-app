@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import "./BasicDataDisplay.scss";
 
-const BasicDataDisplay = ({ countriesData, selectedCountry }) => {
+const BasicDataDisplay = ({ countriesData, selectedCountry, isLoading}) => {
     const globalData = useMemo(() => {
         const globalData = {
             confirmed: 0,
@@ -31,9 +31,9 @@ const BasicDataDisplay = ({ countriesData, selectedCountry }) => {
 
     return (
         <div className="basic-data-display">
-            <h2 className="basic-data-display__header">{selectedCountry.countryName} Statistics</h2>
+            <h2 className={`basic-data-display__header ${isLoading ? 'isLoading' : ''}`}>{selectedCountry.countryName} Statistics</h2>
 
-            <div className="basic-data-display__data">
+            <div className={`basic-data-display__data ${isLoading ? 'isLoading' : ''}`}>
                 <div className="basic-data-display__data-left">
                     <span className="basic-data-display__data-name">
                         New cases
@@ -50,7 +50,7 @@ const BasicDataDisplay = ({ countriesData, selectedCountry }) => {
                     <i className="basic-data-display__data-icon fas fa-virus"></i>
                 </div>
             </div>
-            <div className="basic-data-display__data">
+            <div className={`basic-data-display__data ${isLoading ? 'isLoading' : ''}`}>
                 <div className="basic-data-display__data-left">
                     <span className="basic-data-display__data-name">
                         New Deaths

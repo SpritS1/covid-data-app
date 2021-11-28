@@ -1,10 +1,10 @@
 import './Progress.scss';
 import ProgressBar from './ProgressBar';
 
-const Progress = ({ title, fullyVac, partiallyVac, population, isActive = false}) => {
+const Progress = ({ title, fullyVac, partiallyVac, population, isActive = false, isLoading}) => {
     
     return ( 
-        <div className="progress">
+        <div className={`progress ${isLoading ? 'isLoading' : ''}`}>
             <div className="progress__header">
                 <h3 className="progress__text">{title}</h3>
             </div>

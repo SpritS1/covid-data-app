@@ -17,7 +17,7 @@ const Home = () => {
     const fetchOptions = {
         headers: { 'Content-Type': 'application/json' }
     }
-    const {response: countriesData, error} = useFetch(url, fetchOptions);
+    const {response: countriesData, isLoading ,error} = useFetch(url, fetchOptions);
 
     return ( 
         <div className="home">
@@ -27,11 +27,11 @@ const Home = () => {
                 selectedCountry={selectedCountry}
                 setSelectedCountry={setSelectedCountry}
                 countriesData={countriesData}/>
-            {countriesData && <BasicDataDisplay countriesData={countriesData} selectedCountry={selectedCountry}/>}
-            {countriesData && <CountriesTable countriesData={countriesData}/>}
-            {countriesData && <Map countriesData={countriesData} selectedCountry={selectedCountry}/>}
-            {countriesData && <Chart date={date} selectedCountry={selectedCountry}/>}
-            {countriesData && <Vaccination selectedCountry={selectedCountry}/>}
+            {countriesData && <BasicDataDisplay countriesData={countriesData} selectedCountry={selectedCountry} isLoading={isLoading}/>}
+            {countriesData && <CountriesTable countriesData={countriesData} isLoading={isLoading}/>}
+            {countriesData && <Map countriesData={countriesData} selectedCountry={selectedCountry} isLoading={isLoading}/>}
+            {countriesData && <Chart date={date} selectedCountry={selectedCountry} isLoading={isLoading}/>}
+            {countriesData && <Vaccination selectedCountry={selectedCountry} isLoading={isLoading}/>}
             <Footer></Footer>
         </div>
      );
