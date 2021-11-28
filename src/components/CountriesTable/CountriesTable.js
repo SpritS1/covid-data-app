@@ -4,7 +4,7 @@ import './CountriesTable.scss';
 import { useEffect, useState } from 'react';
 import sortData from '../../scripts/sortData';
 
-const CountriesTable = ({ countriesData }) => {
+const CountriesTable = ({ countriesData, isLoading }) => {
     const [sortedCountriesData, setSortedCountriesData] = useState(() => sortData('confirmed_daily', countriesData, 'desc'));
 
     useEffect(() => { 
@@ -12,7 +12,7 @@ const CountriesTable = ({ countriesData }) => {
     }, [countriesData])
 
     return ( 
-        <table className="countries-table" >
+        <table className={`countries-table ${isLoading ? 'isLoading' : ''}`} >
             <thead className='countries-table__thead'>
                 <tr className='countries-table__tr'>
                     <th className='countries-table__title'>Cases and deaths by country</th>

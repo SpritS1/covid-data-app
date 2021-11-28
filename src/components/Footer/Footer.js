@@ -6,10 +6,10 @@ const Footer = () => {
             <p className="footer__copyright"> &copy; 2021 &middot; Made by <b>Mateusz Penkala</b> &middot;</p>
             <ul className="footer__socials-list">
                 <li className="footer__socials-item">
-                    <i class="footer__social-icon fab fa-github-square"></i>
+                    <i className="footer__social-icon fab fa-github-square"></i>
                 </li>
                 <li className="footer__socials-item">
-                    <i class="footer__social-icon fab fa-linkedin"></i>
+                    <i className="footer__social-icon fab fa-linkedin"></i>
                 </li>
             </ul>
         </footer>

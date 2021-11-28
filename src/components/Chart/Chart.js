@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import ChartOptions from "./ChartOptions";
 import moment from "moment";
 
-const Chart = ({ date, selectedCountry }) => {
+const Chart = ({ date, selectedCountry, isLoading }) => {
     const [chartData, setChartData] = useState(null);
     const [chartRange, setChartRange] = useState(7);
     const [chartMode, setChartMode] = useState("cases");
@@ -135,7 +135,7 @@ const Chart = ({ date, selectedCountry }) => {
                 chartMode={chartMode}
                 setChartMode={setChartMode}
             />
-            <div className="chart__body">
+            <div className={`chart__body ${isLoading ? 'isLoading' : ''}`}>
                 <Line data={data} options={options} />
             </div>
         </div>

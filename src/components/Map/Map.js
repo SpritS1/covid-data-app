@@ -1,10 +1,10 @@
 import Chart from 'react-google-charts';
 import './Map.scss';
 
-const Map = (props) => {
+const Map = ({countriesData, selectedCountry, isLoading}) => {
     const mapData = [['Country', 'Cases']];
 
-    props.countriesData.forEach(({country_iso2s, confirmed_daily}) => {
+    countriesData.forEach(({country_iso2s, confirmed_daily}) => {
         if (confirmed_daily) {
             if (country_iso2s.length > 0) {
                 country_iso2s.forEach(iso => {
@@ -20,13 +20,13 @@ const Map = (props) => {
     });
 
     return ( 
-    <div className="map">
+    <div className={`map ${isLoading ? 'isLoading' : ''}`}>
         <Chart
-            className='map__geochart'
+            className={`map__geochart`}
             chartType="GeoChart"
             data={mapData}
             options={{
-                region: props.selectedCountry.iso2,
+                region: selectedCountry.iso2,
                 colorAxis: {colors: ['#ECFCFF' , '#1EBFE3', '#00A6DE'],},
             }}
             >

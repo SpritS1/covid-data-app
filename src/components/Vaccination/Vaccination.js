@@ -11,7 +11,7 @@ const Vaccination = ({ selectedCountry }) => {
         }
     );
 
-    const {response: vaccinationCountryData, errorCountry} = useFetch(
+    const {response: vaccinationCountryData, isLoading, errorCountry} = useFetch(
         `https://covid-api.mmediagroup.fr/v1/vaccines?country=${selectedCountry.countryName}`, 
         {
         headers: { 'Content-Type': 'application/json' }
@@ -29,6 +29,7 @@ const Vaccination = ({ selectedCountry }) => {
                     partiallyVac={vaccinationCountryData.All.people_partially_vaccinated} 
                     population={vaccinationCountryData.All.population}
                     isActive={true}
+                    isLoading={isLoading}
                 />
             )}
 
