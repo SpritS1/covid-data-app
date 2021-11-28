@@ -9,6 +9,7 @@ import Footer from './Footer/Footer';
 import useFetch from '../hooks/useFetch';
 import getDate from '../scripts/getDate';
 import { useState } from 'react';
+import LoadingScreen from './LoadingScreen';
 
 const Home = () => {
     const [date, setDate] = useState(getDate(-1));
@@ -21,18 +22,38 @@ const Home = () => {
 
     return ( 
         <div className="home">
-            <Header 
-                date={date} 
-                setDate={setDate} 
-                selectedCountry={selectedCountry}
-                setSelectedCountry={setSelectedCountry}
-                countriesData={countriesData}/>
-            {countriesData && <BasicDataDisplay countriesData={countriesData} selectedCountry={selectedCountry} isLoading={isLoading}/>}
-            {countriesData && <CountriesTable countriesData={countriesData} isLoading={isLoading}/>}
-            {countriesData && <Map countriesData={countriesData} selectedCountry={selectedCountry} isLoading={isLoading}/>}
-            {countriesData && <Chart date={date} selectedCountry={selectedCountry} isLoading={isLoading}/>}
-            {countriesData && <Vaccination selectedCountry={selectedCountry} isLoading={isLoading}/>}
-            <Footer></Footer>
+            {!countriesData && <LoadingScreen />}
+            
+            {countriesData && (
+                <>
+                    <Header
+                        date={date}
+                        setDate={setDate}
+                        selectedCountry={selectedCountry}
+                        setSelectedCountry={setSelectedCountry}
+                        countriesData={countriesData}
+                    />
+                    <BasicDataDisplay
+                        countriesData={countriesData}
+                        selectedCountry={selectedCountry}
+                        isLoading={isLoading}
+                    />
+                    <CountriesTable countriesData={countriesData} isLoading={isLoading} />
+                    <Map
+                        countriesData={countriesData}
+                        selectedCountry={selectedCountry}
+                        isLoading={isLoading}
+                    />
+                    <Chart
+                        date={date}
+                        selectedCountry={selectedCountry}
+                        isLoading={isLoading}
+                    />
+                    <Vaccination selectedCountry={selectedCountry} isLoading={isLoading} />
+                    <Footer />
+                </>
+            )}
+
         </div>
      );
 }

@@ -1,0 +1,32 @@
+@import '/src/scss/variables.scss';
+
+.loading-screen {
+    width: 100vw;
+    height: 100vh;
+    background: $gray-light;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+
+    &__spin {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        border: solid 3px $black;
+        border-bottom-color: $gray-light;
+        border-radius: 50%;
+        height: 75px;
+        width: 75px;
+        animation: 1s linear infinite spinner;
+    }
+    
+    @keyframes spinner {
+        from {
+            transform: translate3d(-50%, -50%, 0) rotate(0deg);
+        }
+        to {
+            transform: translate3d(-50%, -50%, 0) rotate(360deg);
+        }
+    }
+}
