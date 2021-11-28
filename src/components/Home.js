@@ -1,13 +1,14 @@
 import './Home.scss';
-import BasicDataDisplay from './BasicDataDisplay';
+import BasicDataDisplay from './BasicDataDisplay/BasicDataDisplay';
 import CountriesTable from './CountriesTable/CountriesTable';
 import Header from './Header/Header';
 import Map from './Map/Map';
+import Chart from './Chart/Chart';
+import Vaccination from './Vaccination/Vaccination';
+import Footer from './Footer/Footer';
 import useFetch from '../hooks/useFetch';
 import getDate from '../scripts/getDate';
 import { useState } from 'react';
-import Chart from './Chart/Chart';
-import Vaccination from './Vaccination/Vaccination';
 
 const Home = () => {
     const [date, setDate] = useState(getDate(-1));
@@ -31,6 +32,7 @@ const Home = () => {
             {countriesData && <Map countriesData={countriesData} selectedCountry={selectedCountry}/>}
             {countriesData && <Chart date={date} selectedCountry={selectedCountry}/>}
             {countriesData && <Vaccination selectedCountry={selectedCountry}/>}
+            <Footer></Footer>
         </div>
      );
 }
