@@ -1,5 +1,5 @@
-@import '../scss/variables';
-@import '../scss/mixins';
+@import '/src/scss/_variables.scss';
+@import '/src/scss/_mixins.scss';
 
 body {
     color: $font-color-blue;

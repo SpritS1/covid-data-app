@@ -1,0 +1,44 @@
+@import '/src/scss/_variables.scss';
+@import '/src/scss/_mixins.scss';
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .5rem;
+    padding: 0 1rem 1.5rem 1rem;
+
+    &__copyright {
+        font-size: .9rem;
+    }
+
+    &__socials-list {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: .75rem;
+    }
+
+    &__social-icon {
+        font-size: 2rem;
+        cursor: pointer;
+        transition: .1s ease-in-out;
+
+        &:hover {
+            opacity: .9;
+        }
+    }
+}
+
+@media screen and (min-width: $breakpoint-mobile) {
+    .footer {
+        padding: .5rem 1rem 0 1rem;
+    }
+}
+
+@media screen and (min-width: $breakpoint-desktop) {
+    .footer {
+        grid-column: 1 / 13;
+    }
+}
