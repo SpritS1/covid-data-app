@@ -28,6 +28,7 @@ const Map = ({countriesData, selectedCountry, isLoading}) => {
             options={{
                 region: selectedCountry.iso2,
                 colorAxis: {colors: ['#ECFCFF' , '#1EBFE3', '#00A6DE'],},
+                legend: 'none'
             }}
             >
         </Chart>

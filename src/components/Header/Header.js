@@ -7,10 +7,10 @@ const Header = ({ date, setDate, selectedCountry, setSelectedCountry, countriesD
  
     return ( 
         <header className='header'>
-            <div className="header__logo">
+            <a className="header__logo" href='/'>
                 <h1 className="header__text">COVID-19 Data</h1>
                 <i className="header__icon fas fa-viruses"></i>
-            </div>
+            </a>
                 <div className="header__options">
                     <HeaderOption 
                         iconId='far fa-flag'

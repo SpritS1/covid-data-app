@@ -41,9 +41,9 @@ const BasicDataDisplay = ({ countriesData, selectedCountry, isLoading}) => {
                     <p className="basic-data-display__data-value">
                         {selectedCountryData && selectedCountryData.confirmed_daily.toLocaleString()}
                         {!selectedCountryData && globalData && globalData.confirmed_daily.toLocaleString()}
-                        <span className="basic-data-display__data-new-value plus">
+                        {/* <span className="basic-data-display__data-new-value plus">
                             +2412
-                        </span>
+                        </span> */}
                     </p>
                 </div>
                 <div className="basic-data-display__data-icon-box">
@@ -58,9 +58,9 @@ const BasicDataDisplay = ({ countriesData, selectedCountry, isLoading}) => {
                     <p className="basic-data-display__data-value">
                         {selectedCountryData && selectedCountryData.deaths_daily.toLocaleString()}
                         {!selectedCountryData && globalData && globalData.deaths_daily.toLocaleString()}
-                        <span className="basic-data-display__data-new-value minus">
+                        {/* <span className="basic-data-display__data-new-value minus">
                             -10
-                        </span>
+                        </span> */}
                     </p>
                 </div>
                 <div className="basic-data-display__data-icon-box">
