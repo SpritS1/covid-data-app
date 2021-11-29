@@ -1,6 +1,6 @@
 import "./Chart.scss";
 import { Line } from "react-chartjs-2";
-import useFetch from "../../hooks/useFetch";
+import useFetch from "hooks/useFetch";
 import { useEffect, useState } from "react";
 import ChartOptions from "./ChartOptions";
 import moment from "moment";

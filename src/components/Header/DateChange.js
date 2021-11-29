@@ -1,7 +1,7 @@
 import './DateChange.scss';
 import moment from 'moment';
 import { useEffect, useRef, useState } from 'react';
-import getDate from '../../scripts/getDate';
+import getDate from 'scripts/getDate';
 
 const DateChange = ({ date, setDate, setIsActive }) => {
     const [year, setYear] = useState(moment(date).format('YYYY'));

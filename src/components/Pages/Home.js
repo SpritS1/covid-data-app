@@ -1,15 +1,17 @@
 import './Home.scss';
-import BasicDataDisplay from './BasicDataDisplay/BasicDataDisplay';
-import CountriesTable from './CountriesTable/CountriesTable';
-import Header from './Header/Header';
-import Map from './Map/Map';
-import Chart from './Chart/Chart';
-import Vaccination from './Vaccination/Vaccination';
-import Footer from './Footer/Footer';
-import useFetch from '../hooks/useFetch';
-import getDate from '../scripts/getDate';
+import BasicDataDisplay from 'components/BasicDataDisplay/BasicDataDisplay';
+import CountriesTable from 'components/CountriesTable/CountriesTable';
+import Header from 'components/Header/Header';
+import Map from 'components/Map/Map';
+import Chart from 'components/Chart/Chart';
+import Vaccination from 'components/Vaccination/Vaccination';
+import Footer from 'components/Footer/Footer';
+import LoadingScreen from 'components/Other/LoadingScreen';
+
+import useFetch from 'hooks/useFetch';
+import getDate from 'scripts/getDate';
+
 import { useState } from 'react';
-import LoadingScreen from './LoadingScreen';
 
 const Home = () => {
     const [date, setDate] = useState(getDate(-1));

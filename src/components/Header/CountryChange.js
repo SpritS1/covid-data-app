@@ -1,5 +1,5 @@
 import "./CountryChange.scss";
-import SearchBox from "../SearchBox";
+import SearchBox from "components/Other/SearchBox";
 import { useEffect, useMemo, useState } from "react";
 
 const CountryChange = ({
