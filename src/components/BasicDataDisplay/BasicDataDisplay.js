@@ -1,7 +1,7 @@
-import { useMemo } from "react";
-import "./BasicDataDisplay.scss";
+import { useMemo } from 'react';
+import './BasicDataDisplay.scss';
 
-const BasicDataDisplay = ({ countriesData, selectedCountry, isLoading}) => {
+const BasicDataDisplay = ({ countriesData, selectedCountry, isLoading }) => {
     const globalData = useMemo(() => {
         const globalData = {
             confirmed: 0,
@@ -25,22 +25,35 @@ const BasicDataDisplay = ({ countriesData, selectedCountry, isLoading}) => {
             if (country.country === selectedCountry.countryName) return country;
         }
         return null;
-    }
+    };
 
     const selectedCountryData = getSelectedCountryFromCountriesData();
 
     return (
         <div className="basic-data-display">
-            <h2 className={`basic-data-display__header ${isLoading ? 'isLoading' : ''}`}>{selectedCountry.countryName} Statistics</h2>
+            <h2
+                className={`basic-data-display__header ${
+                    isLoading ? 'isLoading' : ''
+                }`}
+            >
+                {selectedCountry.countryName} Statistics
+            </h2>
 
-            <div className={`basic-data-display__data ${isLoading ? 'isLoading' : ''}`}>
+            <div
+                className={`basic-data-display__data ${
+                    isLoading ? 'isLoading' : ''
+                }`}
+            >
                 <div className="basic-data-display__data-left">
                     <span className="basic-data-display__data-name">
                         New cases
                     </span>
                     <p className="basic-data-display__data-value">
-                        {selectedCountryData && selectedCountryData.confirmed_daily.toLocaleString()}
-                        {!selectedCountryData && globalData && globalData.confirmed_daily.toLocaleString()}
+                        {selectedCountryData &&
+                            selectedCountryData.confirmed_daily.toLocaleString()}
+                        {!selectedCountryData &&
+                            globalData &&
+                            globalData.confirmed_daily.toLocaleString()}
                         {/* <span className="basic-data-display__data-new-value plus">
                             +2412
                         </span> */}
@@ -50,14 +63,21 @@ const BasicDataDisplay = ({ countriesData, selectedCountry, isLoading}) => {
                     <i className="basic-data-display__data-icon fas fa-virus"></i>
                 </div>
             </div>
-            <div className={`basic-data-display__data ${isLoading ? 'isLoading' : ''}`}>
+            <div
+                className={`basic-data-display__data ${
+                    isLoading ? 'isLoading' : ''
+                }`}
+            >
                 <div className="basic-data-display__data-left">
                     <span className="basic-data-display__data-name">
                         New Deaths
                     </span>
                     <p className="basic-data-display__data-value">
-                        {selectedCountryData && selectedCountryData.deaths_daily.toLocaleString()}
-                        {!selectedCountryData && globalData && globalData.deaths_daily.toLocaleString()}
+                        {selectedCountryData &&
+                            selectedCountryData.deaths_daily.toLocaleString()}
+                        {!selectedCountryData &&
+                            globalData &&
+                            globalData.deaths_daily.toLocaleString()}
                         {/* <span className="basic-data-display__data-new-value minus">
                             -10
                         </span> */}

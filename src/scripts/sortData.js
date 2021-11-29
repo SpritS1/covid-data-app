@@ -1,6 +1,6 @@
 const sortData = (sortedElement, data, sortingDirection = 'desc') => {
     const newDataArray = data.concat();
-    
+
     const sortedData = newDataArray.sort((a, b) => {
         if (sortingDirection === 'desc') {
             return b[sortedElement] - a[sortedElement];
@@ -9,9 +9,9 @@ const sortData = (sortedElement, data, sortingDirection = 'desc') => {
         } else {
             return null;
         }
-    })
+    });
 
     return sortedData;
-}
+};
 
 export default sortData;

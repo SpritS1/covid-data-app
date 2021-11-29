@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react';
 
 const useFetch = (url, options) => {
     const [response, setResponse] = useState(null);
@@ -10,20 +10,20 @@ const useFetch = (url, options) => {
         const fetchData = async () => {
             try {
                 const res = await fetch(url, options);
-                const data = await res.json();            
-    
+                const data = await res.json();
+
                 setResponse(data);
                 setIsLoading(false);
             } catch (error) {
                 setError(error);
                 setIsLoading(false);
-            }  
-        }
+            }
+        };
         fetchData();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [url])
+    }, [url]);
 
     return { response, isLoading, error };
-}
+};
 
 export default useFetch;

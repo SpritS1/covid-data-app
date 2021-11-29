@@ -6,20 +6,21 @@ const SearchBox = ({ searchedValue, setSearchedValue }) => {
 
     useEffect(() => {
         searchBoxRef.current.focus();
-    }, [])
+    }, []);
 
-    return ( 
+    return (
         <div className="search-box">
-            <input 
+            <input
                 ref={searchBoxRef}
-                type="text" 
+                type="text"
                 value={searchedValue}
                 onChange={(e) => setSearchedValue(e.target.value)}
-                placeholder='Search' 
-                className="search-box__input" />
+                placeholder="Search"
+                className="search-box__input"
+            />
             <i className="fas fa-search search-box__icon "></i>
         </div>
-     );
-}
- 
+    );
+};
+
 export default SearchBox;

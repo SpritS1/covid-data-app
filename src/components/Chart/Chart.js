@@ -1,43 +1,47 @@
-import "./Chart.scss";
-import { Line } from "react-chartjs-2";
-import useFetch from "hooks/useFetch";
-import { useEffect, useState } from "react";
-import ChartOptions from "./ChartOptions";
-import moment from "moment";
+import './Chart.scss';
+import { Line } from 'react-chartjs-2';
+import useFetch from 'hooks/useFetch';
+import { useEffect, useState } from 'react';
+import ChartOptions from './ChartOptions';
+import moment from 'moment';
 
 const Chart = ({ date, selectedCountry, isLoading }) => {
     const [chartData, setChartData] = useState(null);
     const [chartRange, setChartRange] = useState(7);
-    const [chartMode, setChartMode] = useState("cases");
+    const [chartMode, setChartMode] = useState('cases');
 
-    const [chartColor, setChartColor] = useState("33, 212, 253");
-    const [dataName, setDataName] = useState("confirmed_daily");
-    const [label, setLabel] = useState("New Cases");
+    const [chartColor, setChartColor] = useState('33, 212, 253');
+    const [dataName, setDataName] = useState('confirmed_daily');
+    const [label, setLabel] = useState('New Cases');
 
     const chartMinDate = moment(date)
-        .subtract(chartRange, "days")
-        .format("YYYY-MM-DD");
-    const url = `https://webhooks.mongodb-stitch.com/api/client/v2.0/app/covid-19-qppza/service/REST-API/incoming_webhook/countries_summary?${selectedCountry && selectedCountry.countryName !== "Global" ? `country=${selectedCountry.countryName}&` : ""}min_date=${chartMinDate}&max_date=${date}&hide_fields=_id,uids,country,states,country_iso2s,population,recovered,confirmed,deaths,country_iso3s,country_codes,combined_names,recovered_daily`;
+        .subtract(chartRange, 'days')
+        .format('YYYY-MM-DD');
+    const url = `https://webhooks.mongodb-stitch.com/api/client/v2.0/app/covid-19-qppza/service/REST-API/incoming_webhook/countries_summary?${
+        selectedCountry && selectedCountry.countryName !== 'Global'
+            ? `country=${selectedCountry.countryName}&`
+            : ''
+    }min_date=${chartMinDate}&max_date=${date}&hide_fields=_id,uids,country,states,country_iso2s,population,recovered,confirmed,deaths,country_iso3s,country_codes,combined_names,recovered_daily`;
     const { response: covidData, error } = useFetch(url, {});
 
     useEffect(() => {
         const casesOptions = {
-            chartColor: "30, 191, 227",
-            dataName: "confirmed_daily",
-            label: "New Cases",
-        };
-    
-        const deathsOptions = {
-            chartColor: "51, 51, 51",
-            dataName: "deaths_daily",
-            label: "New Deaths",
+            chartColor: '30, 191, 227',
+            dataName: 'confirmed_daily',
+            label: 'New Cases',
         };
 
-        if (chartMode === "cases") {
+        const deathsOptions = {
+            chartColor: '51, 51, 51',
+            dataName: 'deaths_daily',
+            label: 'New Deaths',
+        };
+
+        if (chartMode === 'cases') {
             setChartColor(casesOptions.chartColor);
             setDataName(casesOptions.dataName);
             setLabel(casesOptions.label);
-        } else if (chartMode === "deaths") {
+        } else if (chartMode === 'deaths') {
             setChartColor(deathsOptions.chartColor);
             setDataName(deathsOptions.dataName);
             setLabel(deathsOptions.label);
@@ -80,7 +84,7 @@ const Chart = ({ date, selectedCountry, isLoading }) => {
     const data = {
         labels:
             chartData &&
-            chartData.map(({ date }) => moment(date).format("MMM DD")),
+            chartData.map(({ date }) => moment(date).format('MMM DD')),
         datasets: [
             {
                 label: label,
@@ -109,7 +113,7 @@ const Chart = ({ date, selectedCountry, isLoading }) => {
                 display: false,
             },
             tooltips: {
-                mode: "index",
+                mode: 'index',
                 intersect: false,
             },
         },
@@ -128,7 +132,9 @@ const Chart = ({ date, selectedCountry, isLoading }) => {
 
     return (
         <div className={`chart`}>
-            <h2 className="chart__title">{selectedCountry.countryName} Trend</h2>
+            <h2 className="chart__title">
+                {selectedCountry.countryName} Trend
+            </h2>
             <ChartOptions
                 chartRange={chartRange}
                 setChartRange={setChartRange}
