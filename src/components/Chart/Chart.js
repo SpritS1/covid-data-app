@@ -4,10 +4,11 @@ import useFetch from 'hooks/useFetch';
 import { useEffect, useState } from 'react';
 import ChartOptions from './ChartOptions';
 import moment from 'moment';
+import useLocalStorage from 'hooks/useLocalStorage';
 
 const Chart = ({ date, selectedCountry, isLoading }) => {
     const [chartData, setChartData] = useState(null);
-    const [chartRange, setChartRange] = useState(7);
+    const [chartRange, setChartRange] = useLocalStorage('chartRange', 30);
     const [chartMode, setChartMode] = useState('cases');
 
     const [chartColor, setChartColor] = useState('33, 212, 253');

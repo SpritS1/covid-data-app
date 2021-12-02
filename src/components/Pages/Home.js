@@ -12,13 +12,20 @@ import useFetch from 'hooks/useFetch';
 import getDate from 'scripts/getDate';
 
 import { useState } from 'react';
+import useLocalStorage from 'hooks/useLocalStorage';
 
 const Home = () => {
+    // States
     const [date, setDate] = useState(getDate(-1));
-    const [selectedCountry, setSelectedCountry] = useState({
-        countryName: 'Global',
-        iso2: null,
-    });
+    const [selectedCountry, setSelectedCountry] = useLocalStorage(
+        'selectedCountry',
+        {
+            countryName: 'Global',
+            iso2: null,
+        },
+    );
+
+    // Fetch
     const url = `https://webhooks.mongodb-stitch.com/api/client/v2.0/app/covid-19-qppza/service/REST-API/incoming_webhook/countries_summary?&min_date=${date}&max_date=${date}`;
     const fetchOptions = {
         headers: { 'Content-Type': 'application/json' },
