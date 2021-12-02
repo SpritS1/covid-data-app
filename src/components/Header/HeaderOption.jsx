@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Modal from 'components/Other/Modal.js';
+import Modal from 'components/Other/Modal';
 import './HeaderOption.scss';
 
 const HeaderOption = ({ iconId, bodyContent, modalContent }) => {
