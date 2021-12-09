@@ -6,9 +6,10 @@
     height: 1.5rem;
     border-radius: $border-radius;
     background: hsl(0, 0%, 93%);
-    transition: .5s ease-in-out;
+    transition: 0.5s ease-in-out;
 
-    &__main, &__secondary {
+    &__main,
+    &__secondary {
         position: absolute;
         height: inherit;
         border-radius: inherit;

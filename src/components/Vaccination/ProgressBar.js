@@ -1,6 +1,6 @@
 import './ProgressBar.scss';
 import Tooltip from 'components/Other/Tooltip';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const ProgressBar = ({
     valueMain,
@@ -31,17 +31,28 @@ const ProgressBar = ({
                 style={mainStyle}
                 onMouseEnter={() => setIsMainTooltipVisible(true)}
                 onMouseLeave={() => setIsMainTooltipVisible(false)}
-            >
-                {isMainTooltipVisible && <Tooltip content="55%" />}
-            </div>
+            ></div>
+            {isMainTooltipVisible && (
+                <Tooltip
+                    content={`${((valueMain / maxValueMain) * 100).toFixed(
+                        2,
+                    )} %`}
+                />
+            )}
             <div
                 className="progress-bar__secondary"
                 style={secondaryStyle}
                 onMouseEnter={() => setIsSecondaryTooltipVisible(true)}
                 onMouseLeave={() => setIsSecondaryTooltipVisible(false)}
-            >
-                {isSecondaryTooltipVisible && <Tooltip content="55%" />}
-            </div>
+            ></div>
+            {isSecondaryTooltipVisible && (
+                <Tooltip
+                    content={`${(
+                        (valueSecondary / maxValueSecondary) *
+                        100
+                    ).toFixed(2)} %`}
+                />
+            )}
         </div>
     );
 };
