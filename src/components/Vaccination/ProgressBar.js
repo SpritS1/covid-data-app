@@ -9,6 +9,7 @@ const ProgressBar = ({
     maxValueSecondary,
     mainColor,
     secondaryColor,
+    isLoading,
 }) => {
     const mainStyle = {
         width: `${(valueMain / maxValueMain) * 100}%`,
@@ -29,8 +30,8 @@ const ProgressBar = ({
             <div
                 className="progress-bar__main"
                 style={mainStyle}
-                onMouseEnter={() => setIsMainTooltipVisible(true)}
-                onMouseLeave={() => setIsMainTooltipVisible(false)}
+                onMouseEnter={() => isLoading || setIsMainTooltipVisible(true)}
+                onMouseLeave={() => isLoading || setIsMainTooltipVisible(false)}
             ></div>
             {isMainTooltipVisible && (
                 <Tooltip
@@ -42,8 +43,12 @@ const ProgressBar = ({
             <div
                 className="progress-bar__secondary"
                 style={secondaryStyle}
-                onMouseEnter={() => setIsSecondaryTooltipVisible(true)}
-                onMouseLeave={() => setIsSecondaryTooltipVisible(false)}
+                onMouseEnter={() =>
+                    isLoading || setIsSecondaryTooltipVisible(true)
+                }
+                onMouseLeave={() =>
+                    isLoading || setIsSecondaryTooltipVisible(false)
+                }
             ></div>
             {isSecondaryTooltipVisible && (
                 <Tooltip

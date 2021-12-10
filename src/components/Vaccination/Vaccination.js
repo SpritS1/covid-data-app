@@ -1,7 +1,7 @@
 import './Vaccination.scss';
 import Progress from './Progress';
-import useFetch from '../../hooks/useFetch';
-import getDate from '../../scripts/getDate';
+import useFetch from 'hooks/useFetch';
+import getDate from 'scripts/getDate';
 
 const Vaccination = ({ selectedCountry }) => {
     const { response: vaccinationGlobalData, errorGlobal } = useFetch(
