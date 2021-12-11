@@ -23,6 +23,7 @@ const Progress = ({
                     maxValueSecondary={population}
                     mainColor="#1ebfe3"
                     secondaryColor="#A5D7E2"
+                    isLoading={isLoading}
                 />
             )}
 
@@ -71,7 +72,8 @@ const Progress = ({
                     <div className="progress__info-item-right">
                         <span className="progress__info-text">Population</span>
                         <span className="progress__info-value">
-                            {population.toLocaleString()}
+                            {population && population.toLocaleString()}
+                            {!population && 'Not available'}
                         </span>
                     </div>
                 </li>
