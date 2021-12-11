@@ -79,6 +79,7 @@ const CountryChange = ({
                                 onClick={() =>
                                     handleClick({ countryName, iso2 })
                                 }
+                                tabIndex={0}
                                 key={countryName}
                             >
                                 {iso2 && (
