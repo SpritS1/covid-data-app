@@ -14,6 +14,22 @@ const DateChange = ({ date, setDate, setIsActive }) => {
         yearRef.current.focus();
     }, []);
 
+    // Handlers
+
+    const handleEnterClick = (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            handleDateSave();
+        }
+    };
+
+    const handleEscapeClick = (e) => {
+        if (e.key === 'Escape') {
+            e.preventDefault();
+            setIsActive(false);
+        }
+    };
+
     const handleYearInput = (year) => {
         if (Number(year) <= Number(moment().format('YYYY')) || year === '') {
             setYear(year);
@@ -50,7 +66,13 @@ const DateChange = ({ date, setDate, setIsActive }) => {
     };
 
     return (
-        <div className="date-change">
+        <div
+            className="date-change"
+            onKeyDown={(e) => {
+                handleEnterClick(e);
+                handleEscapeClick(e);
+            }}
+        >
             <div className="date-change__header">
                 <h3 className="date-change__title">Insert date</h3>
                 <i

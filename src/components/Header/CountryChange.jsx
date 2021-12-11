@@ -2,12 +2,7 @@ import './CountryChange.scss';
 import SearchBox from 'components/Other/SearchBox';
 import { useEffect, useMemo, useState } from 'react';
 
-const CountryChange = ({
-    setIsActive,
-    countriesData,
-    // selectedCountry,
-    setSelectedCountry,
-}) => {
+const CountryChange = ({ setIsActive, countriesData, setSelectedCountry }) => {
     // Converts countriesData to array of objects with countryName and iso2
     const countriesList = useMemo(() => {
         const array = [
@@ -52,13 +47,33 @@ const CountryChange = ({
         searchCountry(searchedValue, countriesList);
     }, [searchedValue, countriesList]);
 
-    const handleClick = (country) => {
+    const handleEnterClick = (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            document.activeElement.click();
+        }
+    };
+
+    const handleEscapeClick = (e) => {
+        if (e.key === 'Escape') {
+            e.preventDefault();
+            setIsActive(false);
+        }
+    };
+
+    const handleCountryClick = (country) => {
         setSelectedCountry(country);
         setIsActive(false);
     };
 
     return (
-        <div className="country-change">
+        <div
+            className="country-change"
+            onKeyDown={(e) => {
+                handleEnterClick(e);
+                handleEscapeClick(e);
+            }}
+        >
             <div className="country-change__header">
                 <h3 className="country-change__title">Select country</h3>
                 <i
@@ -77,7 +92,7 @@ const CountryChange = ({
                             <li
                                 className="country-change__countries-list-item"
                                 onClick={() =>
-                                    handleClick({ countryName, iso2 })
+                                    handleCountryClick({ countryName, iso2 })
                                 }
                                 tabIndex={0}
                                 key={countryName}
