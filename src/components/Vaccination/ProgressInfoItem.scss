@@ -1,0 +1,22 @@
+@import '../../scss/variables';
+
+.progress-info-item {
+    flex: 1 0 100px;
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+
+    &__right {
+        display: flex;
+        gap: 0.25rem;
+        flex-direction: column;
+    }
+
+    &__text {
+        white-space: nowrap;
+    }
+
+    &__value {
+        font-weight: 700;
+    }
+}
