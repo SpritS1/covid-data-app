@@ -10,7 +10,9 @@ COVID-19 dashboard displaying data about new cases, deaths, vaccination progress
 
 ## Used technologies
 
-React, JavaScript, Sass
+* React,
+* JavaScript,
+* Sass
 
 ## Used API's
 
