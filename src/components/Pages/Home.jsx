@@ -9,14 +9,14 @@ import Footer from 'components/Footer/Footer';
 import LoadingScreen from 'components/Other/LoadingScreen';
 
 import useFetch from 'hooks/useFetch';
-import getDate from 'scripts/getDate';
 
-import { useState } from 'react';
 import useLocalStorage from 'hooks/useLocalStorage';
+import { useSelector } from 'react-redux';
 
 const Home = () => {
+    const date = useSelector((state) => state.date.date);
+
     // States
-    const [date, setDate] = useState(getDate(-1));
     const [selectedCountry, setSelectedCountry] = useLocalStorage(
         'selectedCountry',
         {
@@ -43,8 +43,6 @@ const Home = () => {
             {countriesData && (
                 <>
                     <Header
-                        date={date}
-                        setDate={setDate}
                         selectedCountry={selectedCountry}
                         setSelectedCountry={setSelectedCountry}
                         countriesData={countriesData}
@@ -64,7 +62,6 @@ const Home = () => {
                         isLoading={isLoading}
                     />
                     <Chart
-                        date={date}
                         selectedCountry={selectedCountry}
                         isLoading={isLoading}
                     />

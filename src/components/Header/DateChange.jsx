@@ -2,8 +2,13 @@ import './DateChange.scss';
 import moment from 'moment';
 import { useEffect, useRef, useState } from 'react';
 import getDate from 'scripts/getDate';
+import { useSelector, useDispatch } from 'react-redux';
+import { changeDate } from 'redux/dateSlice';
 
-const DateChange = ({ date, setDate, setIsActive }) => {
+const DateChange = ({ setIsActive }) => {
+    const date = useSelector((state) => state.date.date);
+    const dispatch = useDispatch();
+
     const [year, setYear] = useState(moment(date).format('YYYY'));
     const [month, setMonth] = useState(moment(date).format('MM'));
     const [day, setDay] = useState(moment(date).format('DD'));
@@ -52,7 +57,8 @@ const DateChange = ({ date, setDate, setIsActive }) => {
         if (year && month && day) {
             const newDate = moment(`${year}-${month}-${day}`, 'YYYY-MM-DD');
 
-            setDate(newDate.format('YYYY-MM-DD'));
+            // setDate(newDate.format('YYYY-MM-DD'));
+            dispatch(changeDate(newDate.format('YYYY-MM-DD')));
             setIsActive(false);
         }
     };

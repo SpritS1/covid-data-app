@@ -5,8 +5,11 @@ import { useEffect, useState } from 'react';
 import ChartOptions from './ChartOptions';
 import moment from 'moment';
 import useLocalStorage from 'hooks/useLocalStorage';
+import { useSelector } from 'react-redux';
 
-const Chart = ({ date, selectedCountry, isLoading }) => {
+const Chart = ({ selectedCountry, isLoading }) => {
+    const date = useSelector((state) => state.date.date);
+
     const [chartData, setChartData] = useState(null);
     const [chartRange, setChartRange] = useLocalStorage('chartRange', 30);
     const [chartMode, setChartMode] = useState('cases');

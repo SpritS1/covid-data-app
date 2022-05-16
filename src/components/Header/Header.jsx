@@ -2,14 +2,11 @@ import './Header.scss';
 import HeaderOption from './HeaderOption';
 import DateChange from './DateChange';
 import CountryChange from './CountryChange';
+import { useSelector } from 'react-redux';
 
-const Header = ({
-    date,
-    setDate,
-    selectedCountry,
-    setSelectedCountry,
-    countriesData,
-}) => {
+const Header = ({ selectedCountry, setSelectedCountry, countriesData }) => {
+    const date = useSelector((state) => state.date.date);
+
     return (
         <header className="header">
             <a className="header__logo" href="/">
@@ -31,7 +28,7 @@ const Header = ({
                 <HeaderOption
                     iconId="far fa-calendar-alt"
                     bodyContent={date}
-                    modalContent={<DateChange date={date} setDate={setDate} />}
+                    modalContent={<DateChange />}
                 />
             </div>
         </header>
