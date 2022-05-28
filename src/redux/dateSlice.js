@@ -4,7 +4,7 @@ import getDate from '../scripts/getDate';
 export const dateSlice = createSlice({
     name: 'date',
     initialState: {
-        date: getDate(-1),
+        date: '2022-01-20',
     },
     reducers: {
         changeDate: (state, action) => {
